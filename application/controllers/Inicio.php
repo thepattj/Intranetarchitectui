@@ -19,7 +19,9 @@ class Inicio extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		$this->load->view('inicio');
+		$this->load->view('menu/header');
+		$this->load->view('menu/inicio');
+		$this->load->view('menu/footer');
 	}
 	/*public function prueba(){
 		echo "EXISTE ESTA PRUEBA PARA";

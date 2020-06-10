@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 	public function index(){
 		$this->load->view('login/login');
 	}
-	/*public function prueba(){
-		echo "EXISTE ESTA PRUEBA PARA";
+	/*public function restablecer(){
+		$this->load->view('login/restablecer');
 	}*/
 }
