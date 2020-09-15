@@ -68,17 +68,19 @@
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
                                         <h5 class="card-title">Bienvenido a nuestro portal</h5>
-                                        <form class="">
+                                        <form action="" method="POST" class="">
                                             <div class="position-relative form-group">
                                                 <label for="exampleEmail" class="">Usurio</label>
-                                                <input name="email" id="exampleEmail" placeholder="ejemplo@servidor.com" type="email" class="form-control">
+                                                <input name="username" id="username" placeholder="Nombre de usuario" type="text" class="form-control">
                                             </div>
                                             <div class="position-relative form-group">
                                                 <label for="examplePassword" class="">Contraseña</label>
-                                                <input name="password" id="examplePassword" placeholder="" type="password" class="form-control">
+                                                <input name="password" id="password" placeholder="*********" type="password" class="form-control">
                                             </div>
 
-                                            <button class="mt-1 btn btn-success" onclick="location.href='<?php echo base_url();?>inicio'"><!-- <a href="inicio"> -->Ingresar<!-- </a> --></button>
+                                            <!-- <button class="mt-1 btn btn-success" onclick=""> Ingresar </button> -->
+
+                                            <input type="submit" value="Ingresar" class="mt-1 btn btn-success" name="">
 
                                             <small class="form-text text-muted">Has Olvidado tu contraseña? Da clic <a href="login/restablecer" class="card-link"> aquí </a> para realizar el proceso de restablecimiento.</small>
                                         </form>

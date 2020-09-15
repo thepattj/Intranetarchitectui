@@ -19,6 +19,14 @@ class Login extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
+		if(isset($_POST['password'])){
+			$this->load->model('usuario_model');
+			if( $this->usuario_model->login($_POST['username'], $_POST['password'])){
+				redirect('inicio');
+			}else{
+				redirect('login');
+			}
+		}
 		$this->load->view('login/login');
 	}
 	/*public function restablecer(){
