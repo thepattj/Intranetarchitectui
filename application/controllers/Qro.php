@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Chih extends CI_Controller {
+class Qro extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,9 +21,9 @@ class Chih extends CI_Controller {
 	public function index(){
 		echo "PRUEBA DE 22!";
 	}
-	public function AGN980316FJ5(){
+	public function AAF1107272S1(){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/chih/AGN980316FJ5');
+		$this->load->view('estacion/qro/AAF1107272S1');
 		$this->load->view('estacion/footer');
 	}
 	public function MAMX610501DBA(){
@@ -83,6 +83,11 @@ class Chih extends CI_Controller {
 	public function SPC0301072E4(){
 		# code...
 		# ES AQU!
+		# echo "prueba CIRCUNVALACION";
+
+        $this->load->view('estacion/header');
+		$this->load->view('estacion/qro/SPC0301072E4');
+		$this->load->view('estacion/footer');
 	}
 	public function SQP161107HW5(){
 		# code...
@@ -124,17 +129,17 @@ class Chih extends CI_Controller {
 	/*POR PL PARA DAR LA INFORMACION DE CADA UNO DE LAS ESTACIONES*/
 	public function PL1790(){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1743');
+		$this->load->view('estacion/qro/PL1790');
 		$this->load->view('estacion/footer');
 	}
 	public function PL1833(){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1745');
+		$this->load->view('estacion/qro/PL1833');
 		$this->load->view('estacion/footer');
 	}
 	public function PL1484(){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1745');
+		$this->load->view('estacion/qro/PL1484');
 		$this->load->view('estacion/footer');
 	}
 

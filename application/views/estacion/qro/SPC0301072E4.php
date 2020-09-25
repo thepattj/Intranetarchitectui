@@ -531,7 +531,7 @@
                                         <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ESTACIONES
+                                    <div>SERVICIO PLAZA CIRCUNVALACIÓN
                                         <div class="page-title-subheading">Selecciona la estación.
                                         </div>
                                     </div>
@@ -591,26 +591,25 @@
                         </div>
                         <div class="row">
                             <?php 
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 22 GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
+                                $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%CIRCUNVALACION%'";
+                                $resultado = mysqli_query($con, $sqlestacion);
+                                while ($row = $resultado->fetch_object()) { 
+                                    $id = $row->pl; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>
                                 <div class="col-md-6 col-xl-4">
-                                    <a href="../qro/<?php echo ($row->clave); ?>">
-                                        <div class="card mb-3 widget-content" style="cursor: pointer;">
-                                            <div class="widget-content-outer">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left">
-                                                        <!-- <div class="widget-heading">Estado de</div> -->
-                                                        <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="widget-numbers text-success"></div>
-                                                    </div>
-                                                </div>
+                                <a href="<?php echo $id; ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading"><?php echo ($row->nestacion); ?></div>
+                                                <h5 class="text-dark"> <?php echo ($row->pl); ?> </h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success"></div>
                                             </div>
                                         </div>
-                                    </a>
-                                </div>
+                                    </div>
+                                </div> </a>
+                            </div>
                             <?php } ?>
                         </div>
                         <div class="row"> </div>
