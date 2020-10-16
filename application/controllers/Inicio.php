@@ -26,4 +26,10 @@ class Inicio extends CI_Controller {
 	/*public function prueba(){
 		echo "EXISTE ESTA PRUEBA PARA";
 	}*/
+
+	public function contraloria(){
+		$this->load->view('menu/header');
+		$this->load->view('menu/contador');
+		$this->load->view('menu/footer');
+	}
 }

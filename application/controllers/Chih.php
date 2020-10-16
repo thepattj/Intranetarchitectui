@@ -26,115 +26,103 @@ class Chih extends CI_Controller {
 		$this->load->view('estacion/chih/AGN980316FJ5');
 		$this->load->view('estacion/footer');
 	}
-	public function MAMX610501DBA(){
+	public function AFR1302216L1(){
 		# code...
 	}
-	public function EGA060630K72(){
+	public function DCL880518UG2(){
 		# code...
 	}
-	public function MOTE570610T42(){
+	public function DIRL580912V96(){
 		# code...
 	}
-	public function GAG9403107L2(){
-		# code...
-	}
-	public function GCT1412116G8(){
-		# code...
-	}
-	public function GNO140114CG8(){
-		# code...
-	}
-	public function GGA110623R89(){
-		# code...
-	}
-	public function GGB0407198W2(){
-		# code...
-	}
-	public function GGO1101134D0(){
-		# code...
-	}
-	public function GGP070420R71(){
-		# code...
-	}
-	public function GGR061110DL0(){
+	public function EST980316F45(){
 		# code...
 	}
 	public function GGO0209238J1(){
 		# code...
 	}
-	public function VAJL710910TN0(){
+	public function GVA951010DW1(){
 		# code...
 	}
-	public function SAQ110912DI7(){
+	public function ORA0507116F3(){
 		# code...
 	}
-	public function SAQ110822U79(){
+	public function PET171229S93(){
 		# code...
 	}
-	public function SBA161219082(){
+	public function RAMJ500311A56(){
 		# code...
 	}
-	public function SEC160608N95(){
+	public function SAL01072046A(){
 		# code...
 	}
-	public function SGA030122GY5(){
+	public function SAN010720DAA(){
 		# code...
 	}
-	public function SPC0301072E4(){
+	public function SCA920721AV1(){
+		# code...
+	}
+	public function SCR961126MD9(){
+		# code...
+	}
+	public function SEX9204017Q6(){
+		# code...
+	}
+	public function SGA9211115D0(){
+		# code...
+	}
+	public function SIA930628530(){
+		# code...
+	}
+	public function SIGG330219EI0(){
+		# code...
+	}
+	public function SIM000324HN9(){
+		# code...
+	}
+	public function SJA880518PRA(){
 		# code...
 		# ES AQU!
 	}
-	public function SQP161107HW5(){
+	public function SLV020207676(){
 		# code...
 	}
-	public function SQS110113MU0(){
+	public function SNM981008336(){
 		# code...
 	}
-	public function SRS16111163A(){
+	public function SNR960621UZA(){
 		# code...
 	}
-	public function SIC1009244L8(){
+	public function SOA960322B57(){
 		# code...
 	}
-	public function SPQ1402181D3(){
+	public function SPE920721J33(){
 		# code...
 	}
-	public function SMA1605047T9(){
+	public function SPS840928PE5(){
 		# code...
 	}
-	public function SEP1507277N2(){
+	public function STL000303B33(){
 		# code...
 	}
-	public function SHJ1410274T0(){
+	public function SUR020207LTA(){
 		# code...
 	}
-	public function SSV921014FF4(){
-		# code...
-	}
-	public function SSM9710095A1(){
-		# code...
-	}
-	public function SSQ121221SV1(){
-		# code...
-	}
-	public function SSM960704NS1(){
-		# code...
-	}
-
+	
 	/*POR PL PARA DAR LA INFORMACION DE CADA UNO DE LAS ESTACIONES*/
-	public function PL1790(){
+	public function (){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1743');
+		$this->load->view('estacion//');
 		$this->load->view('estacion/footer');
 	}
-	public function PL1833(){
+	public function (){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1745');
+		$this->load->view('estacion//');
 		$this->load->view('estacion/footer');
 	}
-	public function PL1484(){
+	public function (){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/qro/PL1745');
+		$this->load->view('estacion//');
 		$this->load->view('estacion/footer');
 	}
 
