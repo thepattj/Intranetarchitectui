@@ -19,8 +19,9 @@ class Estaciones extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
+		$nUsuario = "Antonio Rivera";
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/estados');
+		$this->load->view('estacion/estados', compact("nUsuario"));
 		$this->load->view('estacion/footer');
 	}
 	public function chih(){
@@ -102,8 +103,5 @@ class Estaciones extends CI_Controller {
 		$this->load->view('estacion/header');
 		$this->load->view('estacion/estado/zac');
 		$this->load->view('estacion/footer');
-	}
-	public function AGN980316FJ5(){
-		Ocho::AGN980316FJ5();
 	}
 }

@@ -27,103 +27,148 @@ class Chih extends CI_Controller {
 		$this->load->view('estacion/footer');
 	}
 	public function AFR1302216L1(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/AFR1302216L1');
+		$this->load->view('estacion/footer');
 	}
 	public function DCL880518UG2(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/DCL880518UG2');
+		$this->load->view('estacion/footer');
+	}
+	public function DGM880621FU5(){
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/DGM880621FU5');
+		$this->load->view('estacion/footer');
 	}
 	public function DIRL580912V96(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/DIRL580912V96');
+		$this->load->view('estacion/footer');
 	}
 	public function EST980316F45(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/EST980316F45');
+		$this->load->view('estacion/footer');
 	}
 	public function GGO0209238J1(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/GGO0209238J1');
+		$this->load->view('estacion/footer');
 	}
 	public function GVA951010DW1(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/GVA951010DW1');
+		$this->load->view('estacion/footer');
 	}
 	public function ORA0507116F3(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/ORA0507116F3');
+		$this->load->view('estacion/footer');
 	}
 	public function PET171229S93(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/PET171229S93');
+		$this->load->view('estacion/footer');
 	}
 	public function RAMJ500311A56(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/RAMJ500311A56');
+		$this->load->view('estacion/footer');
 	}
 	public function SAL01072046A(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SAL01072046A');
+		$this->load->view('estacion/footer');
 	}
 	public function SAN010720DAA(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SAN010720DAA');
+		$this->load->view('estacion/footer');
 	}
 	public function SCA920721AV1(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SCA920721AV1');
+		$this->load->view('estacion/footer');
 	}
 	public function SCR961126MD9(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SCR961126MD9');
+		$this->load->view('estacion/footer');
 	}
 	public function SEX9204017Q6(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SEX9204017Q6');
+		$this->load->view('estacion/footer');
 	}
 	public function SGA9211115D0(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SGA9211115D0');
+		$this->load->view('estacion/footer');
 	}
 	public function SIA930628530(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SIA930628530');
+		$this->load->view('estacion/footer');
 	}
 	public function SIGG330219EI0(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SIGG330219EI0');
+		$this->load->view('estacion/footer');
 	}
 	public function SIM000324HN9(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SIM000324HN9');
+		$this->load->view('estacion/footer');
 	}
 	public function SJA880518PRA(){
-		# code...
-		# ES AQU!
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SJA880518PRA');
+		$this->load->view('estacion/footer');
 	}
 	public function SLV020207676(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SLV020207676');
+		$this->load->view('estacion/footer');
 	}
 	public function SNM981008336(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SNM981008336');
+		$this->load->view('estacion/footer');
 	}
 	public function SNR960621UZA(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SNR960621UZA');
+		$this->load->view('estacion/footer');
 	}
 	public function SOA960322B57(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SOA960322B57');
+		$this->load->view('estacion/footer');
 	}
 	public function SPE920721J33(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SPE920721J33');
+		$this->load->view('estacion/footer');
 	}
 	public function SPS840928PE5(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/SPS840928PE5');
+		$this->load->view('estacion/footer');
 	}
 	public function STL000303B33(){
-		# code...
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/chih/STL000303B33');
+		$this->load->view('estacion/footer');
 	}
 	public function SUR020207LTA(){
-		# code...
-	}
-	
-	/*POR PL PARA DAR LA INFORMACION DE CADA UNO DE LAS ESTACIONES*/
-	public function (){
 		$this->load->view('estacion/header');
-		$this->load->view('estacion//');
-		$this->load->view('estacion/footer');
-	}
-	public function (){
-		$this->load->view('estacion/header');
-		$this->load->view('estacion//');
-		$this->load->view('estacion/footer');
-	}
-	public function (){
-		$this->load->view('estacion/header');
-		$this->load->view('estacion//');
+		$this->load->view('estacion/chih/SUR020207LTA');
 		$this->load->view('estacion/footer');
 	}
 
+
+	/* FUNCIONES DE PERMISOS DE CRE */
+	public function PL1743(){}
+	public function PL1745(){}
 }

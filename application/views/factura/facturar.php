@@ -85,7 +85,7 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -98,11 +98,12 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
+                                <!-- AQUI VAMOS A TENER QUE HACER UN IF PARA SABER QUE CONTADOR ES -->
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        Antonio Rivera
                                     </div>
                                     <div class="widget-subheading">
-                                        Rep. Legal
+                                        Contador
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -438,16 +439,16 @@
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="#" class="mm-active">
+                                    <a href="../estaciones" >
                                         <i class="metismenu-icon pe-7s-car"></i>
                                         Estaciones
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="proyectos">
-                                        <i class="metismenu-icon pe-7s-portfolio"></i>
-                                        Proyectos
+                                    <a href="#" class="mm-active">
+                                       <i class="metismenu-icon pe-7s-note2"></i>
+                                            Facturas 
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                     <!-- <ul>
@@ -528,11 +529,11 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                     <div class="page-title-icon">
-                                        <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
+                                        <i class="pe-7s-note2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ADMINISTRACIÓN DE GASOLINA NORPONIENTE
-                                        <div class="page-title-subheading">Selecciona la estación.
+                                    <div>FACTURAS
+                                        <div class="page-title-subheading">Deberas cargar las facturas que necesites
                                         </div>
                                     </div>
                                 </div>
@@ -590,27 +591,53 @@
                             </div>
                         </div>
                         <div class="row">
-                            <?php 
-                                $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%NORPONIENTE%'";
-                                $resultado = mysqli_query($con, $sqlestacion);
-                                while ($row = $resultado->fetch_object()) { 
-                                    $id = $row->pl; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="<?php echo $id; ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;">
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <div class="widget-heading"><?php echo ($row->nestacion); ?></div>
-                                                <h5 class="text-dark"> <?php echo ($row->pl); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
+                            <div class="col-lg-12">
+                                <div class="tab-content">
+                                    <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
+                                        <div class="main-card mb-3 card">
+                                            <div class="card-body"><h5 class="card-title">Carga de facturas</h5>
+                                                <form class="">
+                                                    <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Selecciona </label>
+                                                        <div class="col-sm-10">
+                                                        <select name="select" id="exampleSelect" class="form-control"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
+                                                        <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
+                                                    </div>
+                                                    <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Text Area</label>
+                                                        <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
+                                                    </div>
+                                                    <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">File</label>
+                                                        <div class="col-sm-10"><input name="file" id="exampleFile" type="file" class="form-control-file">
+                                                            <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                                        </div>
+                                                    </div>
+                                                    <fieldset class="position-relative row form-group">
+                                                        <legend class="col-form-label col-sm-2">Radio Buttons</legend>
+                                                        <div class="col-sm-10">
+                                                            <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option one is this and that—be sure to include why it's great</label></div>
+                                                            <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option two can be something else and selecting it will deselect option
+                                                                one</label></div>
+                                                            <div class="position-relative form-check disabled"><label class="form-check-label"><input name="radio2" disabled="" type="radio" class="form-check-input"> Option three is disabled</label></div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <div class="position-relative row form-group"><label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="position-relative form-check"><label class="form-check-label"><input id="checkbox2" type="checkbox" class="form-check-input"> Check me out</label></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="position-relative row form-check">
+                                                        <div class="col-sm-10 offset-sm-2">
+                                                            <button class="btn btn-secondary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div> </a>
+                                </div>
                             </div>
-                            <?php } ?>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>

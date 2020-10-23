@@ -531,7 +531,7 @@
                                         <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ADMINISTRACIN DE GASOLINA NORPONIENTE
+                                    <div>ABASTECEDORA AVE FENIX 
                                         <div class="page-title-subheading">Selecciona la estación.
                                         </div>
                                     </div>
@@ -591,7 +591,7 @@
                         </div>
                         <div class="row">
                             <?php 
-                                $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%NORPONIENTE%'";
+                                $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%ABASTECEDORA%'";
                                 $resultado = mysqli_query($con, $sqlestacion);
                                 while ($row = $resultado->fetch_object()) { 
                                     $id = $row->pl; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>

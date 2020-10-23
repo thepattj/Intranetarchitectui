@@ -85,7 +85,11 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <?php if($nUsuario == "Antonio Rivera"){ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                            <?php }else{ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -99,10 +103,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        <?php echo $nUsuario; ?> 
                                     </div>
                                     <div class="widget-subheading">
-                                        Rep. Legal
+                                        <?php if($nUsuario == "Antonio Rivera"){?> Contador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -445,11 +449,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="proyectos">
-                                        <i class="metismenu-icon pe-7s-portfolio"></i>
-                                        Proyectos
+                                    <?php if($nUsuario == "Antonio Rivera"){ ?>
+                                        <a href="facturas">
+                                            <i class="metismenu-icon pe-7s-portfolio"></i>
+                                                Facturas 
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                    </a>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="proyectos">
+                                            <i class="metismenu-icon pe-7s-portfolio"></i>
+                                                Facturas 
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                        </a>
+                                    <?php }?>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">

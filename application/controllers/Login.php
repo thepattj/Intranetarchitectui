@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 				redirect('inicio/cliente');
 			}if($numuser == '3'){
 				//echo $numuser;
-				redirect('../inicio/contraloria');
+				redirect('../inicio/contraloria', $numuser);
 			}if($numuser == '4'){
 				redirect('inicio/Social');
 			}if($numuser == '5'){
