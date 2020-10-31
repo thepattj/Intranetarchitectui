@@ -599,21 +599,28 @@
                                                 <form class="">
                                                     <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Selecciona </label>
                                                         <div class="col-sm-10">
-                                                        <select name="select" id="exampleSelect" class="form-control"></select>
+                                                        <select name="select" id="exampleSelect" class="form-control">
+                                                            <option value="" style="display:none;">Selecciona un grupo</option>
+                                                            <?php $qri = "SELECT DISTINCT grupo as nombre, correoConta as correo FROM cliente";
+                                                                  $res = mysqli_query($con, $qri);
+                                                                  while($row = $res->fetch_object()) {?>
+                                                            <option value="<?php echo ($row->correo); ?>"> <?php echo ($row->nombre); ?> </option>
+                                                            <?php } ?>
+                                                        </select>
                                                         </div>
                                                     </div>
-                                                    <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
-                                                        <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
-                                                    </div>
-                                                    <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Text Area</label>
+                                                    <!-- <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
+                                                        <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div> 
+                                                    </div>-->
+                                                    <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Contenido de Correo</label>
                                                         <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
                                                     </div>
-                                                    <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">File</label>
+                                                    <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">Facturas</label>
                                                         <div class="col-sm-10"><input name="file" id="exampleFile" type="file" class="form-control-file">
-                                                            <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                                            <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
                                                         </div>
                                                     </div>
-                                                    <fieldset class="position-relative row form-group">
+                                                    <!-- <fieldset class="position-relative row form-group">
                                                         <legend class="col-form-label col-sm-2">Radio Buttons</legend>
                                                         <div class="col-sm-10">
                                                             <div class="position-relative form-check"><label class="form-check-label"><input name="radio2" type="radio" class="form-check-input"> Option one is this and that—be sure to include why it's great</label></div>
@@ -621,15 +628,15 @@
                                                                 one</label></div>
                                                             <div class="position-relative form-check disabled"><label class="form-check-label"><input name="radio2" disabled="" type="radio" class="form-check-input"> Option three is disabled</label></div>
                                                         </div>
-                                                    </fieldset>
-                                                    <div class="position-relative row form-group"><label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
+                                                    </fieldset> -->
+                                                    <!-- <div class="position-relative row form-group"><label for="checkbox2" class="col-sm-2 col-form-label">Checkbox</label>
                                                         <div class="col-sm-10">
                                                             <div class="position-relative form-check"><label class="form-check-label"><input id="checkbox2" type="checkbox" class="form-check-input"> Check me out</label></div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="position-relative row form-check">
                                                         <div class="col-sm-10 offset-sm-2">
-                                                            <button class="btn btn-secondary">Submit</button>
+                                                            <button class="btn btn-secondary">Cargar</button>
                                                         </div>
                                                     </div>
                                                 </form>
