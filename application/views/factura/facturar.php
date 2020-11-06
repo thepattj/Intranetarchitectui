@@ -596,10 +596,12 @@
                                     <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body"><h5 class="card-title">Carga de facturas</h5>
-                                                <form class="">
+                                                <!-- <form id="form_subidas" action="<?php echo base_url(); ?>facturas/cargar_archivo" method="POST" class="form-horizontal"> -->
+                                                <?php echo form_open_multipart('facturas/cargar_archivo'); ?>
+                                                    
                                                     <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Selecciona </label>
                                                         <div class="col-sm-10">
-                                                        <select name="select" id="exampleSelect" class="form-control">
+                                                        <select name="grupoSelect" id="grupoSelect" class="form-control">
                                                             <option value="" style="display:none;">Selecciona un grupo</option>
                                                             <?php $qri = "SELECT DISTINCT grupo as nombre, correoConta as correo FROM cliente";
                                                                   $res = mysqli_query($con, $qri);
@@ -612,11 +614,13 @@
                                                     <!-- <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
                                                         <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div> 
                                                     </div>-->
-                                                    <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Contenido de Correo</label>
+                                                    <!-- <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Contenido de Correo</label>
                                                         <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
-                                                    </div>
-                                                    <div class="position-relative row form-group"><label for="exampleFile" class="col-sm-2 col-form-label">Facturas</label>
-                                                        <div class="col-sm-10"><input name="file" id="exampleFile" type="file" class="form-control-file">
+                                                    </div> -->
+                                                    <div class="position-relative row form-group"><label for="" class="col-sm-2 col-form-label">Facturas</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="file" name="archivosF[]" multiple>
+                                                            <!-- <input type="file" id="multipleFile" class="form-control-file" name="archivo[]" multiple=""> -->
                                                             <!-- <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
                                                         </div>
                                                     </div>
@@ -636,9 +640,12 @@
                                                     </div> -->
                                                     <div class="position-relative row form-check">
                                                         <div class="col-sm-10 offset-sm-2">
-                                                            <button class="btn btn-secondary">Cargar</button>
+                                                            <button class="btn btn-secondary">btnCargar</button>
+                                                            <input type="submit" value="Cargar" class="btn btn-secondary">
+                                                            <?php /* echo $correoC; */?>
                                                         </div>
                                                     </div>
+
                                                 </form>
                                             </div>
                                         </div>
