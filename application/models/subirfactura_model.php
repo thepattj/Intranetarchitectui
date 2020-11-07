@@ -9,7 +9,7 @@ class subirFactura_model extends CI_Model{
 	}
 
 	public function cargafactigual($data = array()){
-		echo  "falta dividir";
+		echo  " DENTRO DEL MODEL:::falta dividir ";
 		//$insert = $this->db->insert('files',$data);
 		//return $insert?true:false;
 

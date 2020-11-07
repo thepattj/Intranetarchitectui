@@ -596,8 +596,8 @@
                                     <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
                                         <div class="main-card mb-3 card">
                                             <div class="card-body"><h5 class="card-title">Carga de facturas</h5>
-                                                <!-- <form id="form_subidas" action="<?php echo base_url(); ?>facturas/cargar_archivo" method="POST" class="form-horizontal"> -->
-                                                <?php echo form_open_multipart('facturas/cargar_archivo'); ?>
+                                                <form id="form_subidas" action="<?php /*echo base_url();*/ ?>facturas/cargar_archivo" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                                <?php /* echo form_open_multipart('facturas/cargar_archivo'); */ ?>
                                                     
                                                     <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Selecciona </label>
                                                         <div class="col-sm-10">
