@@ -19,12 +19,22 @@ class Estaciones extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		$nUsuario = "Antonio Rivera";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/estados', compact("nUsuario"));
+		$this->load->view('estacion/estados', compact('nameU'));
 		$this->load->view('estacion/footer');
 	}
-	public function chih(){
+	public function states(){
+		$stateS = $this->input->post('estadoE');
+		$nameU = $this->session->userdata('nombreU');
+		//echo $stateS;
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/estadosr', compact('stateS','nameU'));
+		$this->load->view('estacion/footer');
+	}
+
+	/*public function chih(){
 		$this->load->view('estacion/header');
 		$this->load->view('estacion/estado/chih');
 		$this->load->view('estacion/footer');
@@ -103,5 +113,5 @@ class Estaciones extends CI_Controller {
 		$this->load->view('estacion/header');
 		$this->load->view('estacion/estado/zac');
 		$this->load->view('estacion/footer');
-	}
+	}*/
 }

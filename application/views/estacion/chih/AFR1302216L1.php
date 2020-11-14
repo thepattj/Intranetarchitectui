@@ -1,7 +1,7 @@
 <?php
     function Conectarse() {
         $host="localhost";
-        $user="root"; 
+        $user="root";
         $pass="";
         $database="intranet";
 
@@ -85,7 +85,11 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                          <?php if($nameU == "Antonio Rivera"){ ?>
+                                              <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                          <?php }else{ ?>
+                                              <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                          <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -98,12 +102,12 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading">
-                                        Alina Mclourd
-                                    </div>
-                                    <div class="widget-subheading">
-                                        Rep. Legal
-                                    </div>
+                                  <div class="widget-heading">
+                                      <?php echo $nameU; ?>
+                                  </div>
+                                  <div class="widget-subheading">
+                                      <?php if($nameU == "Antonio Rivera"){?> Contador <?php }?>
+                                  </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
                                     <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
@@ -431,10 +435,17 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <a href="inicio">
-                                        <i class="metismenu-icon pe-7s-home"></i>
-                                        Inicio
-                                    </a>
+                                  <?php if($nameU == "Antonio Rivera"){ ?>
+                                          <a href="../inicio/contraloria">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }else{ ?>
+                                          <a href="inicio">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }?>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
@@ -445,11 +456,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="proyectos">
-                                        <i class="metismenu-icon pe-7s-portfolio"></i>
-                                        Proyectos
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                    </a>
+                                  <?php if($nameU == "Antonio Rivera"){ ?>
+                                      <a href="../facturas">
+                                          <i class="metismenu-icon pe-7s-portfolio"></i>
+                                              Facturas
+                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                      </a>
+                                  <?php } else { ?>
+                                      <a href="proyectos">
+                                          <i class="metismenu-icon pe-7s-portfolio"></i>
+                                              Facturas
+                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                      </a>
+                                  <?php }?>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -590,10 +609,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <?php 
+                            <?php
                                 $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%DE LA FRONTERA%'";
                                 $resultado = mysqli_query($con, $sqlestacion);
-                                while ($row = $resultado->fetch_object()) { 
+                                while ($row = $resultado->fetch_object()) {
                                     $id = $row->pl; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>
                                 <div class="col-md-6 col-xl-4">
                                 <a href="<?php echo $id; ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;">
@@ -617,4 +636,3 @@
                         <div class="row"> </div>
                         <div class="row"> </div>
                     </div>
-                    

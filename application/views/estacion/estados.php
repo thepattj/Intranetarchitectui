@@ -1,7 +1,7 @@
 <?php
     function Conectarse() {
         $host="localhost";
-        $user="root"; 
+        $user="root";
         $pass="";
         $database="intranet";
 
@@ -85,7 +85,7 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <?php if($nUsuario == "Antonio Rivera"){ ?>
+                                            <?php if($nameU == "Antonio Rivera"){ ?>
                                                 <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
                                             <?php }else{ ?>
                                                 <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
@@ -103,10 +103,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $nUsuario; ?> 
+                                        <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nUsuario == "Antonio Rivera"){?> Contador <?php }?>
+                                        <?php if($nameU == "Antonio Rivera"){?> Contador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -435,10 +435,17 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <a href="inicio">
-                                        <i class="metismenu-icon pe-7s-home"></i>
-                                        Inicio
-                                    </a>
+                                    <?php if($nameU == "Antonio Rivera"){ ?>
+                                            <a href="inicio/contraloria">
+                                              <i class="metismenu-icon pe-7s-home"></i>
+                                              Inicio
+                                            </a>
+                                    <?php }else{ ?>
+                                            <a href="inicio">
+                                              <i class="metismenu-icon pe-7s-home"></i>
+                                              Inicio
+                                            </a>
+                                    <?php }?>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
@@ -449,16 +456,16 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <?php if($nUsuario == "Antonio Rivera"){ ?>
+                                    <?php if($nameU == "Antonio Rivera"){ ?>
                                         <a href="facturas">
                                             <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas 
+                                                Facturas
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                         </a>
                                     <?php } else { ?>
                                         <a href="proyectos">
                                             <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas 
+                                                Facturas
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                         </a>
                                     <?php }?>
@@ -543,7 +550,7 @@
                                         <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ESTADOS
+                                    <div>ESTACIONES
                                         <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
                                         </div>
                                     </div>
@@ -602,30 +609,26 @@
                             </div>
                         </div>
                         <div class="row">
-                            <?php 
-                                $sqlestados = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                $resultado = mysqli_query($con, $sqlestados);
-                                while ($row = $resultado->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="estaciones/<?php echo ($row->abrev); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" id="<?php echo ($row->nombrestado); ?>">
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <div class="widget-heading">Estado de</div>
-                                                <h5 class="text-dark"> <?php echo ($row->nombrestado); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> </a>
+                          <form id="frmstate" action="estaciones/states" method="POST" class="form-horizontal">
+                            <div class="position-relative row form-group">
+                              <div class="col-sm-8">
+                                <select name="estadoE" id="estadoE" class="form-control">
+                                    <option value="0" style="display:none;">Selecciona tu estado</option>
+                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
+                                          $res = mysqli_query($con, $qri);
+                                          while($row = $res->fetch_object()) {?>
+                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
+                                    <?php } ?>
+                                </select>
+                              </div>
+                              <div class="col-sm-1">
+                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
+                              </div>
                             </div>
-                            <?php } ?>
+                          </form>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>
                         <div class="row"> </div>
                         <div class="row"> </div>
                     </div>
-                    

@@ -26,9 +26,12 @@ class Chih extends CI_Controller {
 		$this->load->view('estacion/chih/AGN980316FJ5');
 		$this->load->view('estacion/footer');
 	}
+	//TODAS LAS AUTOGAS DE LA FRONTERA
 	public function AFR1302216L1(){
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/chih/AFR1302216L1');
+		$this->load->view('estacion/chih/AFR1302216L1', compact('nameU'));
 		$this->load->view('estacion/footer');
 	}
 	public function DCL880518UG2(){
@@ -169,6 +172,476 @@ class Chih extends CI_Controller {
 
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL1743(){}
-	public function PL1745(){}
+	public function PL6389(){
+		$pl = "PL/6389";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1743(){
+		$pl = "PL/1743";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1745(){
+		$pl = "PL/1745";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL13620(){
+		$pl = "PL/13620";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL12840(){
+		$pl = "PL/12840";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL12841(){
+		$pl = "PL/12841";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL12842(){
+		$pl = "PL/12842";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL12843(){
+		$pl = "PL/12843";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL13074(){
+		$pl = "PL/13074";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL7762(){
+		$pl = "PL/7762";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1744(){
+		$pl = "PL/1744";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL830(){
+		$pl = "PL/830";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL846(){
+		$pl = "PL/846";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL847(){
+		$pl = "PL/847";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL857(){
+		$pl = "PL/857";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL858(){
+		$pl = "PL/858";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL862(){
+		$pl = "PL/862";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL870(){
+		$pl = "PL/870";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL9444(){
+		$pl = "PL/9444";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL2516(){
+		$pl = "PL/2516";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4580(){
+		$pl = "PL/4580";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL11409(){
+		$pl = "PL/11409";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5809(){
+		$pl = "PL/5809";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL7301(){
+		$pl = "PL/7301";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL3326(){
+		$pl = "PL/3326";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL3341(){
+		$pl = "PL/3341";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4616(){
+		$pl = "PL/4616";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5158(){
+		$pl = "PL/5158";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5791(){
+		$pl = "PL/5791";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5806(){
+		$pl = "PL/5806";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL6550(){
+		$pl = "PL/6550";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL6557(){
+		$pl = "PL/6557";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL7738(){
+		$pl = "PL/7738";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL3339(){
+		$pl = "PL/3339";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL9406(){
+		$pl = "PL/9406";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL9420(){
+		$pl = "PL/9420";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5821(){
+		$pl = "PL/5821";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5670(){
+		$pl = "PL/5670";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL13624(){
+		$pl = "PL/13624";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL9125(){
+		$pl = "PL/9125";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4119(){
+		$pl = "PL/4119";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5849(){
+		$pl = "PL/5849";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5850(){
+		$pl = "PL/5850";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5851(){
+		$pl = "PL/5851";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5852(){
+		$pl = "PL/5852";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL11302(){
+		$pl = "PL/11302";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4115(){
+		$pl = "PL/4115";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4118(){
+		$pl = "PL/4118";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5166(){
+		$pl = "PL/5166";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL3322(){
+		$pl = "PL/3322";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4610(){
+		$pl = "PL/4610";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5162(){
+		$pl = "PL/5162";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL13114(){
+		$pl = "PL/13114";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL3334(){
+		$pl = "PL/3334";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL6561(){
+		$pl = "PL/6561";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL6564(){
+		$pl = "PL/6564";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL4121(){
+		$pl = "PL/4121";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5159(){
+		$pl = "PL/5159";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL9103(){
+		$pl = "PL/9103";
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
 }

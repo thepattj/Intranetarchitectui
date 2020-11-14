@@ -12,7 +12,7 @@ class Usuario_model extends CI_Model{
 		//$data = $this->db->get_where('usuario',array('user'=>$usern,'psw'=>$pasw));
 		//return $data
 
-		$this->db->select('idDpto');
+		$this->db->select('idDpto, nombre');
 		$this->db->where('user', $usern);
 		$this->db->where('psw',$pasw);
 		$this->db->from('usuario');

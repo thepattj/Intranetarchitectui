@@ -28,8 +28,20 @@ class Inicio extends CI_Controller {
 	}*/
 
 	public function contraloria(){
+		//aqui se recoje la informacion de la memoria flash
+		$nameU = $this->session->userdata('nombreU');
+		//echo $nameU;
+
 		$this->load->view('menu/header');
-		$this->load->view('menu/contador');
+		$this->load->view('menu/contador', compact("nameU"));
+		$this->load->view('menu/footer');
+	}
+
+	public function clientes(){
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('menu/header');
+		$this->load->view('menu/clientes', compact("nameU"));
 		$this->load->view('menu/footer');
 	}
 }

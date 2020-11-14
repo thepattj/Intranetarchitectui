@@ -5,22 +5,22 @@
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
-                    
+
                 </div>
             </div>
             <div class="app-header__mobile-menu">
-                
+
             </div>
             <div class="app-header__menu">
-                
+
             </div>
             <div class="app-header__content">
                 <div class="app-header-left">
                     <div class="search-wrapper">
-                        
+
                     </div>
                     <ul class="header-menu nav">
-                        
+
                     </ul>
                 </div>
                 <div class="app-header-right">
@@ -30,13 +30,17 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                          <?php if($nameU == "Antonio Rivera"){ ?>
+                                                   <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                              <?php }else{ ?>
+                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                              <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <!-- <button type="button" tabindex="0" class="dropdown-item">Datos del usuario</button> -->
                                             <button type="button" tabindex="0" class="dropdown-item">Configuración</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
+                                            <button type="button" onclick="location.href='<?php echo base_url(); ?>'" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
                                             <!-- <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button> -->
                                         </div>
@@ -44,10 +48,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        Rep. Legal
+                                        <?php if($nameU == "Antonio Rivera"){?> Contador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -61,7 +65,7 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- <div class="ui-theme-settings">
             <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
                 <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
@@ -473,7 +477,7 @@
                         <div class="app-page-title">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                    
+
                                     <div>Información para el regulado
                                         <div class="page-title-subheading">Aqui encontraras información para tu estación de servicio de parte de ENERGAS </div>
                                     </div>
@@ -531,7 +535,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">                            
+                        <div class="row">
                             <!-- <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
                                 <div class="card mb-3 widget-content bg-premium-dark">
                                     <div class="widget-content-wrapper text-white">
@@ -649,4 +653,3 @@
                             </div> -->
                         </div>
                     </div>
-                    

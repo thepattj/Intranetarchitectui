@@ -1,7 +1,7 @@
 <?php
     function Conectarse() {
         $host="localhost";
-        $user="root"; 
+        $user="root";
         $pass="";
         $database="intranet";
 
@@ -432,14 +432,21 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <a href="inicio">
-                                        <i class="metismenu-icon pe-7s-home"></i>
-                                        Inicio
-                                    </a>
+                                  <?php if($nameU == "Antonio Rivera"){ ?>
+                                          <a href="inicio/contraloria">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }else{ ?>
+                                          <a href="inicio">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }?>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="../estaciones" >
+                                    <a href="estaciones" >
                                         <i class="metismenu-icon pe-7s-car"></i>
                                         Estaciones
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
@@ -448,7 +455,7 @@
                                 <li>
                                     <a href="#" class="mm-active">
                                        <i class="metismenu-icon pe-7s-note2"></i>
-                                            Facturas 
+                                            Facturas
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                     <!-- <ul>
@@ -598,12 +605,12 @@
                                             <div class="card-body"><h5 class="card-title">Carga de facturas</h5>
                                                 <form id="form_subidas" action="<?php /*echo base_url();*/ ?>facturas/cargar_archivo" method="POST" enctype="multipart/form-data" class="form-horizontal">
                                                 <?php /* echo form_open_multipart('facturas/cargar_archivo'); */ ?>
-                                                    
+
                                                     <div class="position-relative row form-group"><label for="exampleSelect" class="col-sm-2 col-form-label">Selecciona </label>
                                                         <div class="col-sm-10">
                                                         <select name="grupoSelect" id="grupoSelect" class="form-control">
                                                             <option value="" style="display:none;">Selecciona un grupo</option>
-                                                            <?php $qri = "SELECT DISTINCT grupo as nombre, correoConta as correo FROM cliente";
+                                                            <?php $qri = "SELECT DISTINCT grupo as nombre, correoConta as correo FROM cliente WHERE estatus = 'ACTIVO' AND tipoCliente = 'IGUALA' ORDER BY grupo ASC";
                                                                   $res = mysqli_query($con, $qri);
                                                                   while($row = $res->fetch_object()) {?>
                                                             <option value="<?php echo ($row->correo); ?>"> <?php echo ($row->nombre); ?> </option>
@@ -612,7 +619,7 @@
                                                         </div>
                                                     </div>
                                                     <!-- <div class="position-relative row form-group"><label for="exampleSelectMulti" class="col-sm-2 col-form-label">Select Multiple</label>
-                                                        <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div> 
+                                                        <div class="col-sm-10"><select multiple="" name="selectMulti" id="exampleSelectMulti" class="form-control"></select></div>
                                                     </div>-->
                                                     <!-- <div class="position-relative row form-group"><label for="exampleText" class="col-sm-2 col-form-label">Contenido de Correo</label>
                                                         <div class="col-sm-10"><textarea name="text" id="exampleText" class="form-control"></textarea></div>
@@ -640,8 +647,8 @@
                                                     </div> -->
                                                     <div class="position-relative row form-check">
                                                         <div class="col-sm-10 offset-sm-2">
-                                                            <button class="btn btn-secondary">btnCargar</button>
-                                                            <input type="submit" value="Cargar" class="btn btn-secondary">
+                                                            <button class="btn btn-secondary">Cargar</button>
+                                                            <!-- <input type="submit" value="Cargar" class="btn btn-secondary"> -->
                                                             <?php /* echo $correoC; */?>
                                                         </div>
                                                     </div>
@@ -658,4 +665,3 @@
                         <div class="row"> </div>
                         <div class="row"> </div>
                     </div>
-                    

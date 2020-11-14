@@ -10,9 +10,10 @@ class Facturas extends CI_Controller {
 	}
 
 	public function index(){
+		$nameU = $this->session->userdata('nombreU');
 		//$data['correoC'] = "";
 		$this->load->view('factura/header.php');
-		$this->load->view('factura/facturar.php');
+		$this->load->view('factura/facturar.php', compact("nameU"));
 		$this->load->view('factura/footer.php');
 	}
 
@@ -21,13 +22,37 @@ class Facturas extends CI_Controller {
 		$mes = date('m');
 		$year = date('Y');
 
-		if($mes == 01){ $mes = 'Eneero'; }if($mes == 02){ $mes = 'Febrero'; }if($mes == 03){ $mes = 'Marzo'; }if($mes == 04){ $mes = 'Abril'; }if($mes == 05){ $mes = 'Mayo'; }if($mes == 06){ $mes = 'Junio'; }if($mes == 07){ $mes = 'Julio'; }if($mes == 08){ $mes = 'Agosto'; }if($mes == 09){ $mes = 'Septiembre'; }if($mes == 10){ $mes = 'Octubre'; }if($mes == 11){ $mes = 'Noviembre'; }if($mes == 12){ $mes = 'Diciembre'; }
-		
+		if($mes == 01){
+			$mes = 'Enero';
+		}if($mes == 02){
+			$mes = 'Febrero';
+		}if($mes == 03){
+			$mes = 'Marzo';
+		}if($mes == 04){
+			$mes = 'Abril';
+		}if($mes == 05){
+			$mes = 'Mayo';
+		}if($mes == 06){
+			$mes = 'Junio';
+		}if($mes == 07){
+			$mes = 'Julio';
+		}if($mes == 08){
+			$mes = 'Agosto';
+		}if($mes == 09){
+			$mes = 'Septiembre';
+		}if($mes == 10){
+			$mes = 'Octubre';
+		}if($mes == 11){
+			$mes = 'Noviembre';
+		}if($mes == 12){
+			$mes = 'Diciembre';
+		}
+
 		$direccion="documentPortal/".$mes.$year;
 
 		$config = array(
 			"upload_path"=>"../documentPortal/".$mes.$year,
-			"allowed_types"=>"pdf",
+			"allowed_types"=>"zip",
 			"max_size"=>"2048000"
 		);
 		$variblefiles = $_FILES;
@@ -41,7 +66,7 @@ class Facturas extends CI_Controller {
 			$_FILES['archivosF']['tmp_name'] = $variblefiles['archivosF']['tmp_name'][$i];
 			$_FILES['archivosF']['error'] = $variblefiles['archivosF']['error'][$i];
 			$_FILES['archivosF']['size'] = $variblefiles['archivosF']['size'][$i];
-			
+
 			$this->upload->initialize($config);
 			if($this->upload->do_upload('archivosF')){
 				$correoC = $this->input->post('grupoSelect');
@@ -55,9 +80,9 @@ class Facturas extends CI_Controller {
 					echo " Registro guardado:::MODEL ";
 					//print_r($datos);
 				}else{
-					echo "Error al intentar guardar la informacion:::MODEL";
+					echo "Error al intentar guardar la informacion:::MODEL ";
 					//print_r($_FILES); muestra los datos del archvio
-					print_r($datos);
+					//print_r($datos);
 				}
 			}else{
 				echo $this->upload->display_errors();

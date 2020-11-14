@@ -9,7 +9,20 @@ class subirFactura_model extends CI_Model{
 	}
 
 	public function cargafactigual($data = array()){
-		echo  " DENTRO DEL MODEL:::falta dividir ";
+		echo  " DENTRO DEL MODEL:::falta dividir NOMBRE DEL ARCHVIO: =>".$data[name];
+
+		/* idgenFactura => name primera parte
+		estatus => cargada
+		formadPago => NULL
+		correoCC => correos
+		fechaCarga => de php
+		fechaAct => sera la fecha de descarga NULL
+		fechaPago => hasta que finalice lo demas vendria por update NULL
+		rutaArchivo => direccion+name
+		idCESH => name segunda parte */
+
+		
+
 		//$insert = $this->db->insert('files',$data);
 		//return $insert?true:false;
 
