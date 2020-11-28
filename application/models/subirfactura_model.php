@@ -8,8 +8,32 @@ class subirFactura_model extends CI_Model{
 		parent::__construct();
 	}
 
-	public function cargafactigual($data = array()){
-		echo  " DENTRO DEL MODEL:::falta dividir NOMBRE DEL ARCHVIO: =>".$data[name];
+	public function cargafactigual($ddato){
+		//echo "NOMBRE DEL ARCHVIO: =>".$ddato[nombre];
+		$nombrearch = $ddato['nombre']; // variable para separar nombre de archivo
+		$partes = explode("_", $nombrearch);
+		$bid = $partes[2];
+		$parteid = explode(".", $bid);
+		$bid = $parteid[0];
+		$length = mb_strlen($bid);
+		$bid1 = substr($bid, 0,2);
+		$bid2 = substr($bid, 2,$length);
+		$bid = $bid1."/".$bid2;
+		
+		
+		$nombreid = $partes[1]; //idFACTURA
+		$fecha = date('Y-m-d');
+		//echo $bid;
+
+		$this->db->select('idCESH');
+		$this->db->from('cliente');
+		$this->db->like('idCESH',$bid);
+		$query = $this->db->get();
+		//echo $query->num_rows();
+		foreach ($query->result() as $row) {
+			$idPL = $row->idCESH;
+		}
+
 
 		/* idgenFactura => name primera parte
 		estatus => cargada
@@ -21,22 +45,26 @@ class subirFactura_model extends CI_Model{
 		rutaArchivo => direccion+name
 		idCESH => name segunda parte */
 
-		
 
-		//$insert = $this->db->insert('files',$data);
-		//return $insert?true:false;
+		$sql = "INSERT INTO factura (idgenFactura, estatus, correoCC, fechaCarga, rutaArchivo, idCESH) VALUES ('".$nombreid."','CARGADA','".$ddato['correos']."','".$fecha."','".$ddato['direccion']."/".$ddato['nombre']."','".$idPL."')";
+		//echo $sql;
+		$this->db->query($sql);
+		return TRUE;
+	}
 
-		/* $this->db->select('idDpto');
-		$this->db->where('user', $usern);
-		$this->db->where('psw',$pasw);
-		$this->db->from('usuario');
-
+	public function busfactura($idCESH){
+		$this->db->select('estatus, rutaArchivo, fechaCarga');
+		$this->db->from('factura');
+		//$this->db->like('idCESH', );
+		$this->db->where('idCESH', $idCESH);
 		$query = $this->db->get();
+
 		if($query->num_rows()>0){
 			return $query->result_array();
 		}else{
-			return false;
-		} */
+			$result = "No existen resultados";
+			return $result;
+		}
 	}
 }
 

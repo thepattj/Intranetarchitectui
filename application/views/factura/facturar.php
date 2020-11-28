@@ -85,13 +85,17 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                            <?php if($nameU == "Antonio Rivera"){ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                            <?php }if($nameU == "Adrian Meza"){ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/avataradrian.png" alt="">
+                                            <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <!-- <button type="button" tabindex="0" class="dropdown-item">Datos del usuario</button> -->
                                             <button type="button" tabindex="0" class="dropdown-item">Configuración</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
+                                            <button type="button" onclick="location.href='<?php echo base_url();?>login/salir'" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
                                             <!-- <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button> -->
                                         </div>
@@ -100,7 +104,7 @@
                                 <div class="widget-content-left  ml-3 header-user-info">
                                 <!-- AQUI VAMOS A TENER QUE HACER UN IF PARA SABER QUE CONTADOR ES -->
                                     <div class="widget-heading">
-                                        Antonio Rivera
+                                        <?php echo $nameU;?>
                                     </div>
                                     <div class="widget-subheading">
                                         Contador
@@ -432,7 +436,7 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                  <?php if($nameU == "Antonio Rivera"){ ?>
+                                  <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
                                           <a href="inicio/contraloria">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Inicio

@@ -85,25 +85,37 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <?php if($nameU == "Estación Energas"){?>
+                                              <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarenergas.png" alt="">
+                                            <?php }if($nameU == "Antonio Rivera"){?>
+                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
+                                            <?php } if($nameU == "Adrian Meza"){?>
+                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
+                                            <?php } else{ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <!-- <button type="button" tabindex="0" class="dropdown-item">Datos del usuario</button> -->
                                             <button type="button" tabindex="0" class="dropdown-item">Configuración</button>
-                                            <button type="button" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
+                                            <button type="button" onclick="location.href='<?php echo base_url();?>login/salir'" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
                                             <!-- <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button> -->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading">
-                                        Alina Mclourd
-                                    </div>
-                                    <div class="widget-subheading">
-                                        Rep. Legal
-                                    </div>
+                                  <div class="widget-heading">
+                                      <?php echo $nameU; ?>
+                                  </div>
+                                  <div class="widget-subheading">
+                                      <?php if($nameU == "Estación Energas"){?>
+                                             Administrador
+                                      <?php }if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
+                                            Contador
+                                      <?php } ?>
+                                  </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
                                     <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
@@ -431,13 +443,13 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                  <?php if($nameU == "Antonio Rivera"){ ?>
-                                          <a href="../inicio/contraloria">
+                                  <?php if($nameU == "Estación Energas"){?>
+                                          <a href="../inicio/cliente">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Inicio
                                           </a>
-                                  <?php }else{ ?>
-                                          <a href="inicio">
+                                  <?php }if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                          <a href="../inicio/contraloria">
                                             <i class="metismenu-icon pe-7s-home"></i>
                                             Inicio
                                           </a>
@@ -452,14 +464,14 @@
                                   </a>
                                 </li>
                                 <li>
-                                  <?php if($nameU == "Antonio Rivera"){ ?>
+                                  <?php if($nameU == "Estación Energas"){?>
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-portfolio"></i>
+                                            Proyecto
+                                    <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                    </a>
+                                  <?php }if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
                                       <a href="../facturas">
-                                          <i class="metismenu-icon pe-7s-portfolio"></i>
-                                              Facturas
-                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                      </a>
-                                  <?php } else { ?>
-                                      <a href="proyectos">
                                           <i class="metismenu-icon pe-7s-portfolio"></i>
                                               Facturas
                                       <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
@@ -539,6 +551,7 @@
                     </div>
                 </div>
                 <?php $sqlcl = "SELECT cliente.idCESH, cliente.razonsocial, cliente.numeroEst, cliente.franquicia, cliente.rfc, cliente.direccionP, representantelegal.nombreCompleto, representantelegal.rfc as rfcrl, representantelegal.curp/*, dueño?*/ FROM cliente INNER JOIN representantelegal ON cliente.idCESH = representantelegal.idCESH WHERE cliente.idCESH LIKE '%".$pl."%'";
+                      /*echo $sqlcl;*/
                       $resultado = mysqli_query($con, $sqlcl);
                       while($row = $resultado->fetch_object()){
                         $datos[0] = $row->idCESH;
@@ -685,7 +698,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6 col-xl-6">
-                                <a href="IGUALA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                <a href="<?php echo base_url();?>proyectos/IGUALA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
                                     <div class="widget-content-outer">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left">

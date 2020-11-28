@@ -89,6 +89,8 @@
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
                                             <?php }if($nameU == "Adrian Meza"){ ?>
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
+                                            <?php }else{ ?>
+                                                <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                             <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -106,11 +108,7 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
-                                                  Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
-                                                  Contador
-                                        <?php }?>
+                                        <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?> Contador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -439,13 +437,13 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                            <a href="inicio/contraloria">
+                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                            <a href="../inicio/contraloria">
                                               <i class="metismenu-icon pe-7s-home"></i>
                                               Inicio
                                             </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                            <a href="inicio/contraloria">
+                                    <?php }else{ ?>
+                                            <a href="inicio">
                                               <i class="metismenu-icon pe-7s-home"></i>
                                               Inicio
                                             </a>
@@ -460,16 +458,16 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                        <a href="facturas">
+                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                        <a href="../facturas">
                                             <i class="metismenu-icon pe-7s-portfolio"></i>
                                                 Facturas
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                         </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                        <a href="facturas">
+                                    <?php } else { ?>
+                                        <a href="proyectos">
                                             <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
+                                                Proyectos
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                         </a>
                                     <?php }?>
@@ -554,8 +552,8 @@
                                         <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ESTACIONES
-                                        <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
+                                    <div><?php echo $namesta; ?>
+                                        <div class="page-title-subheading">Selecciona la estación.
                                         </div>
                                     </div>
                                 </div>
@@ -613,23 +611,33 @@
                             </div>
                         </div>
                         <div class="row">
-                          <form id="frmstate" action="estaciones/states" method="POST" class="form-horizontal">
-                            <div class="position-relative row form-group">
-                              <div class="col-sm-8">
-                                <select name="estadoE" id="estadoE" class="form-control">
-                                    <option value="0" style="display:none;">Selecciona tu estado</option>
-                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                          $res = mysqli_query($con, $qri);
-                                          while($row = $res->fetch_object()) {?>
-                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
-                                    <?php } ?>
-                                </select>
-                              </div>
-                              <div class="col-sm-1">
-                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
-                              </div>
+                            <?php
+                                //echo $namesta." - ";
+                                if(($namesta == "JUAN MUÑOZ ALBA") || ($namesta == "AUTO SERVICIO MIR-SOT") || ($namesta == "GRUPO GOCALVI") || ($namesta == "GRUPO TREHER")){
+                                  $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%".$namesta."%' AND idEstado =".$nostate;
+                                }else{
+                                  $sqlestacion = "SELECT idCESH as pl, numeroEst as nestacion FROM cliente WHERE razonSocial LIKE '%".$namesta."%'";
+                                }
+                                //echo $sqlestacion;
+                                $resultado = mysqli_query($con, $sqlestacion);
+                                while ($row = $resultado->fetch_object()) {
+                                    $id = $row->pl; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>
+                                <div class="col-md-6 col-xl-4">
+                                <a href="<?php echo $id; ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading"><?php echo ($row->nestacion); ?></div>
+                                                <h5 class="text-dark"> <?php echo ($row->pl); ?> </h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
                             </div>
-                          </form>
+                            <?php } ?>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>

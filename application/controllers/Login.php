@@ -18,13 +18,15 @@ class Login extends CI_Controller {
 			//echo "SIRVE PARA SABER SI EL PASS ESTA LLENO";
 			$data['duser'] = $this->usuario_model->login($_POST['username'], $_POST['password']);
 			//$this->usuario_model->login($_POST['username'], $_POST['password']);
-			$numuser = $data['duser'][0]['idDpto'];
+			$numdpto = $data['duser'][0]['idDpto'];
 			$nameuser = $data['duser'][0]['nombre'];
+			$numuser = $data['duser'][0]['idUsuario'];
 			//print_r($numuser." nombre ".$nameuser); //ya da el valor
 
 			// NO SE PUEDE ENVIAR POR MEDIO DE VARIBLES LOS DATOS QUE SE NECESITAN SI NO ENVIA COMO UN GET EN EL PHP NORMAL
-			$this->session->set_userdata('numeroU', $numuser);
+			$this->session->set_userdata('numeroU', $numdpto);
 			$this->session->set_userdata('nombreU', $nameuser);
+			$this->session->set_userdata('idU', $numuser);
 
 			// destory session
 	    // $this->session->sess_destroy();
@@ -32,39 +34,40 @@ class Login extends CI_Controller {
 			//$this->session->set_flashdata('numeroU', $numuser); //FLASH DATA
 			//$this->session->set_flashdata('nombreU', $nameuser); //FLASH DATA
 
-			if($numuser == '1'){ //ANALISIS DE RIESGO
+			if($numdpto == '1'){ //ANALISIS DE RIESGO
 				//echo $numuser;
 				redirect('inicio/analisis');
-			}if($numuser == '2'){ //CLIENTES!
-				//echo $numuser;
-				redirect('inicio/cliente');
-			}if($numuser == '3'){ //CONTRALORIA
+			}if($numdpto == '2'){ //CLIENTES!
+				//echo $numuser." - NOMBRE USUARIO".$nameuser;
+				redirect('../inicio/cliente');
+			}if($numdpto == '3'){ //CONTRALORIA
+				//print_r($numuser." - NOMBRE USUARIO".$nameuser);
 				redirect('../inicio/contraloria');
-			}if($numuser == '4'){ //EVIS
+			}if($numdpto == '4'){ //EVIS
 				redirect('inicio/Social');
-			}if($numuser == '5'){ //VEHICULAR
+			}if($numdpto == '5'){ //VEHICULAR
 				redirect('inicio/Vehicular');
-			}if($numuser == '6'){ //IP
+			}if($numdpto == '6'){ //IP
 				redirect('inicio/Preventivo');
-			}if($numuser == '7'){ //JURIDICO
+			}if($numdpto == '7'){ //JURIDICO
 				redirect('inicio/Juridico');
-			}if($numuser == '8'){ //MIA
+			}if($numdpto == '8'){ //MIA
 				redirect('inicio/Ambiental');
-			}if($numuser == '9'){ //PRE
+			}if($numdpto == '9'){ //PRE
 				redirect('inicio/Protocolo');
-			}if($numuser == '10'){ //SASISOPA
+			}if($numdpto == '10'){ //SASISOPA
 				redirect('inicio/Sasisopa');
-			}if($numuser == '11'){ //STPS
+			}if($numdpto == '11'){ //STPS
 				redirect('inicio/Stps');
-			}if($numuser == '12'){ //LF, COA
+			}if($numdpto == '12'){ //LF, COA
 				redirect('inicio/Atmosferico');
-			}if($numuser == '13'){ // YO
+			}if($numdpto == '13'){ // YO
 				redirect('inicio/Sistemas');
-			}if($numuser == '14'){ // JEFES
+			}if($numdpto == '14'){ // JEFES
 				redirect('inicio/Gerencias');
-			}if($numuser == '15'){ // LICS
+			}if($numdpto == '15'){ // LICS
 				redirect('inicio/Directivos');
-			}if($numuser == '16'){ //LEGASPI
+			}if($numdpto == '16'){ //LEGASPI
 				redirect('inicio/Comercial');
 			}else{
 				echo "no existe";
@@ -77,4 +80,9 @@ class Login extends CI_Controller {
 	/*public function restablecer(){
 		$this->load->view('login/restablecer');
 	}*/
+	public function salir(){
+		//echo"destory session";
+	    $this->session->sess_destroy();
+	    redirect(base_url());
+	}
 }

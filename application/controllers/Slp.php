@@ -22,18 +22,40 @@ class Slp extends CI_Controller {
 		echo "PRUEBA DE 22!";
 	}
 	public function AMA011205590(){
+		$namesta = "ARELLANO MATA";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/slp/AMA011205590');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function GEB970318V15(){
+		$namesta = "GASOLINERA EBANO";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/slp/GEB970318V15');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
-		
+
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL1743(){}
-	public function PL1745(){}
+	public function PL5866(){
+		$pl = "PL/5866";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL5208(){
+		$pl = "PL/5208";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
 }

@@ -87,9 +87,9 @@
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                             <?php if($nameU == "Antonio Rivera"){ ?>
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
-                                            <?php }if($nameU == "Adrian Meza"){ ?>
+                                            <?php } if($nameU == "Adrian Meza"){?>
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
-                                            <?php }else{ ?>
+                                            <?php } else{ ?>
                                                 <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                             <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
@@ -110,7 +110,7 @@
                                   <div class="widget-subheading">
                                       <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
                                                 Contador
-                                      <?php }?>
+                                      <?php } ?>
                                   </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -439,40 +439,40 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
-                                            <a href="../inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }else{ ?>
-                                            <a href="inicio">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }?>
+                                  <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                          <a href="../inicio/contraloria">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }else{ ?>
+                                          <a href="inicio">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                          </a>
+                                  <?php }?>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="#" class="mm-active">
-                                        <i class="metismenu-icon pe-7s-car"></i>
-                                        Estaciones
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                    </a>
+                                  <a href="#" class="mm-active">
+                                      <i class="metismenu-icon pe-7s-car"></i>
+                                      Estaciones
+                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                  </a>
                                 </li>
                                 <li>
-                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
-                                        <a href="../facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php } else { ?>
-                                        <a href="proyectos">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }?>
+                                  <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                      <a href="../facturas">
+                                          <i class="metismenu-icon pe-7s-portfolio"></i>
+                                              Facturas
+                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                      </a>
+                                  <?php } else { ?>
+                                      <a href="#">
+                                          <i class="metismenu-icon pe-7s-portfolio"></i>
+                                              Proyectos
+                                      <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                      </a>
+                                  <?php }?>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -545,7 +545,22 @@
                             </ul>
                         </div>
                     </div>
-                </div>    <div class="app-main__outer">
+                </div>
+                <?php $sqlcl = "SELECT cliente.idCESH, cliente.razonsocial, cliente.numeroEst, cliente.franquicia, cliente.rfc, cliente.direccionP, representantelegal.nombreCompleto, representantelegal.rfc as rfcrl, representantelegal.curp/*, dueño?*/ FROM cliente INNER JOIN representantelegal ON cliente.idCESH = representantelegal.idCESH WHERE cliente.idCESH LIKE '%".$pl."%'";
+                      /*echo $sqlcl;*/
+                      $resultado = mysqli_query($con, $sqlcl);
+                      while($row = $resultado->fetch_object()){
+                        $datos[0] = $row->idCESH;
+                        $datos[1] = $row->razonsocial;
+                        $datos[2] = $row->numeroEst;
+                        $datos[3] = $row->franquicia;
+                        $datos[4] = $row->rfc;
+                        $datos[5] = $row->direccionP;
+                        $datos[6] = $row->nombreCompleto;
+                        $datos[7] = $row->rfcrl;
+                        $datos[8] = $row->curp;
+                      }?>
+                <div class="app-main__outer">
                     <div class="app-main__inner">
                         <div class="app-page-title">
                             <div class="page-title-wrapper">
@@ -554,12 +569,14 @@
                                         <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>ESTACIONES
-                                        <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
+                                    <div>
+                                         <?php echo $datos[1]; ?>
+                                        <div class="page-title-subheading">
+                                         <?php echo $datos[0]; ?>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="page-title-actions">
+                          <!-- <div class="page-title-actions">
                                     <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                         <i class="fa fa-star"></i>
                                     </button>
@@ -613,681 +630,264 @@
                             </div>
                         </div>
                         <div class="row">
-                          <form id="frmstate" action="../estaciones/states" method="POST" class="form-horizontal">
-                            <div class="position-relative row form-group">
-                              <div class="col-sm-8">
-                                <select name="estadoE" id="estadoE" class="form-control">
-                                    <option value="0" style="display:none;">Selecciona tu estado</option>
-                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                          $res = mysqli_query($con, $qri);
-                                          while($row = $res->fetch_object()) {?>
-                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
-                                    <?php } ?>
-                                </select>
-                              </div>
-                              <div class="col-sm-1">
-                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
-                              </div>
+                            <!-- ESTE EL PL DE PL1743 -->
+                            <div class="col-lg-12">
+                                <div class="card-shadow-info border mb-3 card card-body border-info">
+                                    <h5 class="card-title">Información General</h5>
+                                    <!--  <span class="col-lg-4">No. Estación: <input type="" name=""> </span>
+                                    <span class="col-lg-4">Franquicia <input type="" name=""> </span>
+                                    <span class="col-lg-4">R.F.C. <input type="" name=""></span> -->
+                                    <div class="form-row">
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">No. Estación</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[2]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">Franquicia</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[3]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">R.F.C.</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[4]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">Dirección</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[5]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">Rep. Legal</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[6]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">R.F.C.</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[7]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">C.U.R.P.</label>
+                                                <input name="" id="" placeholder="" type="text" value="<?php echo $datos[8]; ?>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="position-relative form-group">
+                                                <label for="" class="">Dueño</label>
+                                                <input name="" id="" placeholder="" type="text" value="*************" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title">Documentación</h5>
+                                </div>
                             </div>
-                          </form>
                         </div>
                         <div class="row">
-                          <?php if($stateS =="AGS"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 1 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../ags/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
+                            <div class="col-md-6 col-xl-6">
+                                <a href="<?php echo base_url();?>proyectos/IGUALA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
                                     <div class="widget-content-outer">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
+                                                <div class="widget-heading"></div>
+                                                <h5 class="text-dark">IGUALA</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="SASISOPA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">SASISOPA</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="AR"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Analisis de Riesgo</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="PRE"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Protocolos de Respuesta a Emergencias</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="LF"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Licencia de Funcionamiento</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="COA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Cedula de Operación Anual</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="GRP"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Registro de Generador de Residuos Peligrosos</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="IP"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Informe Preventivo</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="MIA"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Manifiesto de Impacto Ambiental</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="EVIS"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Evaluación de Impacto Social</h5>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success">%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> </a>
+                            </div>
+                            <div class="col-md-6 col-xl-6">
+                                <a href="EVIV"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Evaluación de Impacto Vehicular</h5>
                                             </div>
                                             <div class="widget-content-right">
                                                 <div class="widget-numbers text-success"></div>
                                             </div>
                                         </div>
                                     </div>
-                                </div></a>
+                                </div> </a>
                             </div>
-                            <?php }
-                          }if($stateS =="BCN"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 2 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../bcn/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
+                            <div class="col-md-6 col-xl-6">
+                                <a href="STP"> <div class="card mb-3 widget-content" style="cursor: pointer;">
                                     <div class="widget-content-outer">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">STPS</h5>
                                             </div>
                                             <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
+                                                <div class="widget-numbers text-success">%</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div></a>
+                                </div> </a>
                             </div>
-                            <?php }
-                          }if($stateS =="BCS"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 3 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../bcs/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
+                            <div class="col-md-6 col-xl-6">
+                                <a href="JUD"> <div class="card mb-3 widget-content" style="cursor: pointer;">
                                     <div class="widget-content-outer">
                                         <div class="widget-content-wrapper">
                                             <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
+                                                <div class="widget-heading">Proyecto</div>
+                                                <h5 class="text-dark">Juridico</h5>
                                             </div>
                                             <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
+                                                <div class="widget-numbers text-success">%</div>
                                             </div>
                                         </div>
                                     </div>
-                                </div></a>
+                                </div> </a>
                             </div>
-                            <?php }
-                          }if($stateS =="CAM"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 4 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../cam/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="CHIS"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 7 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../chis/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="CDMX"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 9 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../cdmx/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="MOR"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 17 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../mor/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="NAY"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 18 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../nay/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="OAX"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 20 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../oax/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="PUE"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 21 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../pue/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="ROO"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 23 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../roo/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="SIN"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 25 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../sin/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="SON"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 26 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../son/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="TAB"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 27 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../tab/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="TLX"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 29 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../tlx/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="YUC"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 31 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../yuc/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS =="CHIH"){
-                                $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 8 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../chih/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div></a>
-                            </div>
-                            <?php }
-                          }if($stateS=="COA"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 5 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../coa/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="COL"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 6 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../col/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="DGO"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 10 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../dgo/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="EDOMEX"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 15 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../edomex/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="GTO"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 11 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../gto/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="GRO"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 12 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../gro/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="HGO"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 13 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../hgo/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="JAL"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 14 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../jal/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="MICH"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 16 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../mich/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="NL"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 19 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../nl/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="QRO"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 22 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../qro/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="SLP"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 24 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../slp/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="TAM"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 28 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../tam/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="VER"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 30 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../ver/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }if($stateS=="ZAC"){
-                            $sqlestacion8 = "SELECT razonSocial as nombre, rfc as clave FROM cliente WHERE idEstado = 32 AND tipoCliente = 'IGUALA' GROUP BY razonSocial ORDER BY razonSocial ASC";
-                                $resultado8 = mysqli_query($con, $sqlestacion8);
-                                while ($row = $resultado8->fetch_object()) { ?>
-                                <div class="col-md-6 col-xl-4">
-                                <a href="../zac/<?php echo ($row->clave); ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;" >
-                                    <div class="widget-content-outer">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left">
-                                                <!-- <div class="widget-heading">Estado de</div> -->
-                                                <h5 class="text-dark"> <?php echo ($row->nombre); ?> </h5>
-                                            </div>
-                                            <div class="widget-content-right">
-                                                <div class="widget-numbers text-success"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              </a>
-                            </div>
-                            <?php }
-                          }?>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>

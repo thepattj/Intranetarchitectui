@@ -31,7 +31,9 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                           <?php if($nameU == "Antonio Rivera"){ ?>
-                                                   <img width="42" class="rounded-circle" src="assets/images/avatars/avatarantonio.png" alt="">
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarantonio.png" alt="">
+                                              <?php }if($nameU == "Adrian Meza"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
                                               <?php }else{ ?>
                                                   <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                               <?php } ?>
@@ -40,7 +42,7 @@
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <!-- <button type="button" tabindex="0" class="dropdown-item">Datos del usuario</button> -->
                                             <button type="button" tabindex="0" class="dropdown-item">Configuración</button>
-                                            <button type="button" onclick="location.href='<?php echo base_url(); ?>'" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
+                                            <button type="button" onclick="location.href='<?php echo base_url();?>login/salir'" tabindex="0" class="dropdown-item">Cerrar Sesión</button>
                                             <!-- <div tabindex="-1" class="dropdown-divider"></div>
                                             <button type="button" tabindex="0" class="dropdown-item">Dividers</button> -->
                                         </div>
@@ -51,7 +53,11 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?> Contador <?php }?>
+                                        <?php if($nameU == "Antonio Rivera"){?>
+                                                  Contador
+                                        <?php }if($nameU == "Adrian Meza"){?>
+                                                  Contador
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">

@@ -85,11 +85,13 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <?php if($nameU == "Antonio Rivera"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
-                                            <?php }if($nameU == "Adrian Meza"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
-                                            <?php } ?>
+                                              <?php if($nameU == "Estación Energas"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
+                                              <?php }if($nameU == "otro"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
+                                              <?php }else{ ?>
+                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                              <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -106,11 +108,7 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
-                                                  Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
-                                                  Contador
-                                        <?php }?>
+                                        <?php if($nameU == "Estación Energas"){?> Administrador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -439,17 +437,10 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }?>
+                                    <a href="../inicio/cliente">
+                                      <i class="metismenu-icon pe-7s-home"></i>
+                                      Inicio
+                                    </a>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
@@ -460,19 +451,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }?>
+                                    <a href="#">
+                                      <i class="metismenu-icon pe-7s-portfolio"></i>
+                                      Proyectos
+                                    </a>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -555,7 +537,7 @@
                                         </i>
                                     </div>
                                     <div>ESTACIONES
-                                        <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
+                                        <div class="page-title-subheading">Selecciona la estación a revisar.
                                         </div>
                                     </div>
                                 </div>
@@ -613,23 +595,25 @@
                             </div>
                         </div>
                         <div class="row">
-                          <form id="frmstate" action="estaciones/states" method="POST" class="form-horizontal">
-                            <div class="position-relative row form-group">
-                              <div class="col-sm-8">
-                                <select name="estadoE" id="estadoE" class="form-control">
-                                    <option value="0" style="display:none;">Selecciona tu estado</option>
-                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                          $res = mysqli_query($con, $qri);
-                                          while($row = $res->fetch_object()) {?>
-                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
-                                    <?php } ?>
-                                </select>
-                              </div>
-                              <div class="col-sm-1">
-                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
-                              </div>
-                            </div>
-                          </form>
+                          <div class="col-md-6 col-xl-4">
+                            <?php foreach ($plUser as $plUser) {
+                                      $id = $plUser['idCESH']; $partes = explode("/", $id); $id = $partes[0].$partes[1];?>
+                                      <a href="<?php echo base_url();?>estacion/<?php echo $id; ?>"> <div class="card mb-3 widget-content" style="cursor: pointer;">
+                                            <div class="widget-content-outer">
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <div class="widget-heading"><?php echo $plUser['idCESH']." - ".$plUser['numeroEst']; ?></div>
+                                                        <h5 class="text-dark"> <?php echo $plUser['razonSocial']; ?> </h5>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <div class="widget-numbers text-success"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      </a>
+                            <?php } ?>
+                          </div>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>

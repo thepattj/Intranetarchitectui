@@ -19,47 +19,69 @@ class Gro extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		echo "PRUEBA DE 22!";
+		echo "PRUEBA DE guerrero!";
 	}
 	public function CSF970110GP0(){
+		$namesta = "COMERCIALIZADORA SAN FRANCISCO DE ASIS";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/CSF970110GP0');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function ESA010626556(){
+		$namesta = "ESTACION DE SERVICIO AYUTLA";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/ESA010626556');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function ESS990811AZ3(){
+		$namesta = "ESTACIONES DE SERVICIO SAN JOSE DE A";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/ESS990811AZ3');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SAD130403LE3(){
+		$namesta = "SERVICIO ADAREN";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/SAD130403LE3');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SCO0204088SA(){
+		$namesta = "SERVICIO COPALA";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/SCO0204088SA');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SMA081016LR7(){
+		$namesta = "SERVICIO MARQUELIA";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/SMA081016LR7');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SOM1011085Z1(){
+		$namesta = "SERVICIO OMETEPEC";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/gro/SOM1011085Z1');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 
 	/* FUNCIONES DE PERMISOS DE CRE */
 	public function PL8448(){
 		$pl = "PL/8448";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -68,6 +90,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8450(){
 		$pl = "PL/8450";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -76,6 +99,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL20294(){
 		$pl = "PL/20294";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -84,6 +108,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8438(){
 		$pl = "PL/8438";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -92,6 +117,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8441(){
 		$pl = "PL/8441";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -100,6 +126,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8869(){
 		$pl = "PL/8869";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -108,6 +135,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8436(){
 		$pl = "PL/8436";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -116,6 +144,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8429(){
 		$pl = "PL/8429";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -124,6 +153,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8431(){
 		$pl = "PL/8431";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -132,6 +162,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8424(){
 		$pl = "PL/8424";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -140,6 +171,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8420(){
 		$pl = "PL/8420";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -148,6 +180,7 @@ class Gro extends CI_Controller {
 	}
 	public function PL8419(){
 		$pl = "PL/8419";
+		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');

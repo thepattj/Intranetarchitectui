@@ -19,6 +19,8 @@ class Facturas extends CI_Controller {
 
 	public function cargar_archivo(){
 		//print_r($_FILES); // muestra los datos de los tres archvios que se estan subiendo
+		$j= 0;
+
 		$mes = date('m');
 		$year = date('Y');
 
@@ -72,21 +74,35 @@ class Facturas extends CI_Controller {
 				$correoC = $this->input->post('grupoSelect');
 				$data = array("upload_data" => $this->upload->data());
 				$datos = array(
-					"name" => $data['upload_data']['file_name'],
+					"nombre" => $data['upload_data']['file_name'],
 					"correos" => $correoC,
 					"direccion" =>$direccion,
 				);
 				if($this->subirfactura_model->cargafactigual($datos)){
-					echo " Registro guardado:::MODEL ";
+					//echo " Registro guardado";
+					$j = $j+1;
 					//print_r($datos);
+					//redirect(base_url()."facturas");
 				}else{
-					echo "Error al intentar guardar la informacion:::MODEL ";
+					echo "Error al intentar guardar la informacion";
 					//print_r($_FILES); muestra los datos del archvio
 					//print_r($datos);
 				}
 			}else{
 				echo $this->upload->display_errors();
 			}
+		}
+
+		if($j == $files){
+			//echo "valor de files".$files."valor de J".$j;
+			redirect(base_url()."facturas");//funciona
+
+			/*$nameU = $this->session->userdata('nombreU');
+			$modal = "Cargado";
+			
+			$this->load->view('factura/header.php');
+			$this->load->view('factura/facturar.php', compact("nameU"));
+			$this->load->view('factura/footer.php');*///tambien funciona pero crga dentro de esta funcion
 		}
 	}
 

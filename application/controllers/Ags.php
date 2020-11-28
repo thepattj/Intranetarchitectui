@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tam extends CI_Controller {
+class Ags extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,16 +21,8 @@ class Tam extends CI_Controller {
 	public function index(){
 		echo "PRUEBA DE 22!";
 	}
-	public function BEMF930324U60(){
-		$namesta = "FRANCELLI RUBI BENAVIDES MORALES";
-		$nameU = $this->session->userdata('nombreU');
-
-		$this->load->view('estacion/header');
-		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
-		$this->load->view('estacion/footer');
-	}
-	public function SSO951117MF0(){
-		$namesta = "SERVICIO SOMBRERITO";
+	public function RFCSTA0522(){
+		$namesta = "ESTACION ENERGAS";
 		$nameU = $this->session->userdata('nombreU');
 
 		$this->load->view('estacion/header');
@@ -40,17 +32,8 @@ class Tam extends CI_Controller {
 
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL19447(){
-		$pl = "PL/19447";
-		$this->session->set_userdata('idPL', $pl);
-		$nameU = $this->session->userdata('nombreU');
-
-		$this->load->view('estacion/header');
-		$this->load->view('estacion/clientesta', compact('nameU','pl'));
-		$this->load->view('estacion/footer');
-	}
-	public function PL10119(){
-		$pl = "PL/10119";
+	public function PL0000(){
+		$pl = "PL/0010";
 		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');
 

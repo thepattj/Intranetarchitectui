@@ -12,7 +12,7 @@ class Usuario_model extends CI_Model{
 		//$data = $this->db->get_where('usuario',array('user'=>$usern,'psw'=>$pasw));
 		//return $data
 
-		$this->db->select('idDpto, nombre');
+		$this->db->select('idDpto, nombre, idUsuario');
 		$this->db->where('user', $usern);
 		$this->db->where('psw',$pasw);
 		$this->db->from('usuario');
@@ -23,8 +23,8 @@ class Usuario_model extends CI_Model{
 		}else{
 			return false;
 		}
-		
-		/* 
+
+		/*
 		//return $this->db->get('idDpto'); NOS DEVOLVERIA UNA FILA PORQUE VA A EXISTIR
 		$rsql = $this->db->get('usuario');
 		if($rsql->num_rows()>0){

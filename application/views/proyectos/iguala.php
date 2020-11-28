@@ -1,4 +1,4 @@
-<?php
+|<?php
     function Conectarse() {
         $host="localhost";
         $user="root";
@@ -85,11 +85,13 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <?php if($nameU == "Antonio Rivera"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
-                                            <?php }if($nameU == "Adrian Meza"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
-                                            <?php } ?>
+                                              <?php if($nameU == "Estación Energas"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
+                                              <?php }if($nameU == "otro"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
+                                              <?php }else{ ?>
+                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                              <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -106,11 +108,7 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
-                                                  Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
-                                                  Contador
-                                        <?php }?>
+                                        <?php if($nameU == "Estación Energas"){?> Administrador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -439,17 +437,10 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }?>
+                                    <a href="../inicio/cliente">
+                                      <i class="metismenu-icon pe-7s-home"></i>
+                                      Inicio
+                                    </a>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
@@ -460,19 +451,10 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }?>
+                                    <a href="#">
+                                      <i class="metismenu-icon pe-7s-portfolio"></i>
+                                      Proyectos
+                                    </a>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -551,11 +533,12 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                     <div class="page-title-icon">
-                                        <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
+                                        <i class="pe-7s-ribbon icon-gradient bg-mean-fruit">
+                                        <!-- <i class="pe-7s-flag icon-gradient bg-mean-fruit"> -->
                                         </i>
                                     </div>
-                                    <div>ESTACIONES
-                                        <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
+                                    <div>IGUALA
+                                        <div class="page-title-subheading">Información de tu membresia IGUALA.
                                         </div>
                                     </div>
                                 </div>
@@ -613,25 +596,67 @@
                             </div>
                         </div>
                         <div class="row">
-                          <form id="frmstate" action="estaciones/states" method="POST" class="form-horizontal">
-                            <div class="position-relative row form-group">
-                              <div class="col-sm-8">
-                                <select name="estadoE" id="estadoE" class="form-control">
-                                    <option value="0" style="display:none;">Selecciona tu estado</option>
-                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                          $res = mysqli_query($con, $qri);
-                                          while($row = $res->fetch_object()) {?>
-                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
-                                    <?php } ?>
-                                </select>
-                              </div>
-                              <div class="col-sm-1">
-                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
-                              </div>
-                            </div>
-                          </form>
+                            <?php foreach ($igualasta as $igualasta) {?>
+                              <div class="col-md-6 col-xl-4">
+                                    <div class="card mb-3 widget-content bg-sunny-morning">
+                                        <div class="widget-content-wrapper text-white">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Estatus</div>
+                                                <!-- <div class="widget-subheading">Last year expenses</div> -->
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-white"><span><?php echo $igualasta['estatus'];?></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4">
+                                    <div class="card mb-3 widget-content bg-sunny-morning">
+                                        <div class="widget-content-wrapper text-white">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Ingreso desde</div>
+                                                <div class="widget-heading">HASTA</div>
+                                                <!-- <div class="widget-subheading">Hasta</div> -->
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-white"><span><?php echo $igualasta['fechaInicio'];?></span></div>
+                                                <div class="widget-numbers text-white"><span><?php echo $igualasta['fechaTermino'];?></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xl-4"></div> <!-- EN ESTE ULTIMO VA IR LA BARRA DE PROGRESO -->
+                          <?php } ?>
                         </div>
-                        <div class="row"> </div>
+                        <div class="row">
+                          <div class="col-lg-2"></div>
+                          <div class="col-lg-8">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Tus Facturas</h5>
+                                        <table class="mb-0 table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Mes</th>
+                                                <th>Estatus</th>
+                                                <th>Archivo</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php if($factcarga == "No existen resultados"){?>
+                                                      <tr>
+                                                        <th style="text-align: center;" colspan="4"> No existen resultados </th>
+                                                      </tr>
+                                            <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2"></div>
                         <div class="row"> </div>
                         <div class="row"> </div>
                         <div class="row"> </div>

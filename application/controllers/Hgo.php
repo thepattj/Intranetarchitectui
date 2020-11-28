@@ -22,33 +22,101 @@ class Hgo extends CI_Controller {
 		echo "PRUEBA DE 22!";
 	}
 	public function CPI9001102R9(){
+		$namesta = "COMBULUB EL PILAR";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/hgo/CPI9001102R9');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function GGT030211DL1(){
+		$namesta = "GRUPO GASOLINERO TH";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/hgo/GGT030211DL1');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function GTR020814DD8(){
+		$namesta = "GRUPO TREHER";
+		$nostate = 13;
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/hgo/GTR020814DD8');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta', 'nostate'));
 		$this->load->view('estacion/footer');
 	}
 	public function SIX080818SYA(){
+		$namesta = "SERVICIO IXTAZACUALA";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/hgo/SIX080818SYA');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SGA180612VD4(){
+		$namesta = "SERVICIO EL POTRERO";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/hgo/SGA180612VD4');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
-	
+
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL1743(){}
-	public function PL1745(){}
+	public function PL1767(){
+		$pl = "PL/1767";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL19213(){
+		$pl = "PL/19213";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1731(){
+		$pl = "PL/1731";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL2027(){
+		$pl = "PL/2027";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL11307(){
+		$pl = "PL/11307";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1900(){
+		$pl = "PL/1900";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
 }

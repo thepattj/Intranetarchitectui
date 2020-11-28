@@ -37,9 +37,9 @@ class Inicio extends CI_Controller {
 		$this->load->view('menu/footer');
 	}
 
-	public function clientes(){
+	public function cliente(){
 		$nameU = $this->session->userdata('nombreU');
-
+		//echo $nameU;
 		$this->load->view('menu/header');
 		$this->load->view('menu/clientes', compact("nameU"));
 		$this->load->view('menu/footer');

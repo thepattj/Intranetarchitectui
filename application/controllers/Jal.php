@@ -22,22 +22,102 @@ class Jal extends CI_Controller {
 		echo "PRUEBA DE 22!";
 	}
 	public function GSN0711223T8(){
+		$namesta = "GASOLINERA SAN NICOLAS";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/jal/GSN0711223T8');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SRT9305283W5(){
+		$namesta = "SERVICIO RAMIREZ DE TEPATITLAN";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/jal/SRT9305283W5');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
 	public function SSC101001UZA(){
+		$namesta = "SUPER SERVICIO 54";
+		$nameU = $this->session->userdata('nombreU');
+
 		$this->load->view('estacion/header');
-		$this->load->view('estacion/jal/SSC101001UZA');
+		$this->load->view('estacion/estacrfc',compact('nameU', 'namesta'));
 		$this->load->view('estacion/footer');
 	}
+	/*FALTAN DOS RFC DE GAXCO PETROL*/
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL1743(){}
-	public function PL1745(){}
+	public function PL1760(){
+		$pl = "PL/1760";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1807(){
+		$pl = "PL/1807";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL2379(){
+		$pl = "PL/2379";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL7016(){
+		$pl = "PL/7016";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL10563(){
+		$pl = "PL/10563";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1757(){
+		$pl = "PL/1757";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1766(){
+		$pl = "PL/1766";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
+	public function PL1113(){
+		$pl = "PL/1113";
+		$this->session->set_userdata('idPL', $pl);
+		$nameU = $this->session->userdata('nombreU');
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/clientesta', compact('nameU','pl'));
+		$this->load->view('estacion/footer');
+	}
 }

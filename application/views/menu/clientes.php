@@ -1,82 +1,27 @@
-<?php
-    function Conectarse() {
-        $host="localhost";
-        $user="root";
-        $pass="";
-        $database="intranet";
 
-        $link = new mysqli($host, $user, $pass, $database);
-        $acentos= $link->query("SET NAMES 'utf8'");
-
-        if($link->connect_errno > 0){
-            echo "ERROR AL CONECTARSE A LA BASE DE DATOS";
-        }else{
-            return $link;
-        }
-    }
-    $con = Conectarse();
-?>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
-                    <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
+
                 </div>
             </div>
             <div class="app-header__mobile-menu">
-                <div>
-                    <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                        <span class="hamburger-box">
-                            <span class="hamburger-inner"></span>
-                        </span>
-                    </button>
-                </div>
+
             </div>
             <div class="app-header__menu">
-                <span>
-                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                        <span class="btn-icon-wrapper">
-                            <i class="fa fa-ellipsis-v fa-w-6"></i>
-                        </span>
-                    </button>
-                </span>
-            </div>    <div class="app-header__content">
+
+            </div>
+            <div class="app-header__content">
                 <div class="app-header-left">
                     <div class="search-wrapper">
-                        <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>
+
                     </div>
-                    <!-- <ul class="header-menu nav">
-                                <li class="nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon fa fa-database"> </i>
-                                        Statistics
-                                    </a>
-                                </li>
-                                <li class="btn-group nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon fa fa-edit"></i>
-                                        Projects
-                                    </a>
-                                </li>
-                                <li class="dropdown nav-item">
-                                    <a href="javascript:void(0);" class="nav-link">
-                                        <i class="nav-link-icon fa fa-cog"></i>
-                                        Settings
-                                    </a>
-                                </li>
-                            </ul> -->
+                    <ul class="header-menu nav">
+
+                    </ul>
                 </div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
@@ -85,11 +30,13 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <?php if($nameU == "Antonio Rivera"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
-                                            <?php }if($nameU == "Adrian Meza"){ ?>
-                                                <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
-                                            <?php } ?>
+                                          <?php if($nameU == "Estación Energas"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
+                                              <?php }if($nameU == "otro"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
+                                              <?php }else{ ?>
+                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                              <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -106,11 +53,7 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
-                                                  Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
-                                                  Contador
-                                        <?php }?>
+                                        <?php if($nameU == "Estación Energas"){?> Administrador <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -118,6 +61,7 @@
                                         <i class="fa text-white fa-calendar pr-1 pl-1"></i>
                                     </button>
                                 </div> -->
+                                <!-- SEGUN ESTO SIRVE PARA VER SI SE TIENEN COSAS EN TU CALENDERIO NO SE SI LO PUEDA LLEGAR A USAR -->
                             </div>
                         </div>
                     </div>
@@ -439,40 +383,25 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                            <a href="inicio/contraloria">
-                                              <i class="metismenu-icon pe-7s-home"></i>
-                                              Inicio
-                                            </a>
-                                    <?php }?>
+                                    <a href="#" class="mm-active">
+                                        <i class="metismenu-icon pe-7s-home"></i>
+                                        Inicio
+                                    </a>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="#" class="mm-active">
+                                    <a href="../estaciones/load">
                                         <i class="metismenu-icon pe-7s-car"></i>
                                         Estaciones
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                 </li>
                                 <li>
-                                    <?php if($nameU == "Antonio Rivera"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
+                                    <a href="#">
+                                        <i class="metismenu-icon pe-7s-portfolio disabled"></i>
+                                        Proyectos
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }if($nameU == "Adrian Meza"){ ?>
-                                        <a href="facturas">
-                                            <i class="metismenu-icon pe-7s-portfolio"></i>
-                                                Facturas
-                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
-                                        </a>
-                                    <?php }?>
+                                    </a>
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -550,17 +479,13 @@
                         <div class="app-page-title">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                    <div class="page-title-icon">
-                                        <i class="pe-7s-map-2 icon-gradient bg-mean-fruit">
-                                        </i>
-                                    </div>
-                                    <div>ESTACIONES
-                                        <div class="page-title-subheading">Selecciona el estado donde se ubique tu estación.
-                                        </div>
+
+                                    <div>Información para el regulado
+                                        <div class="page-title-subheading">Aqui encontraras información para tu estación de servicio de parte de ENERGAS </div>
                                     </div>
                                 </div>
-                                <!-- <div class="page-title-actions">
-                                    <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                                <div class="page-title-actions">
+                                    <!-- <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                         <i class="fa fa-star"></i>
                                     </button>
                                     <div class="d-inline-block dropdown">
@@ -608,31 +533,125 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="row">
-                          <form id="frmstate" action="estaciones/states" method="POST" class="form-horizontal">
-                            <div class="position-relative row form-group">
-                              <div class="col-sm-8">
-                                <select name="estadoE" id="estadoE" class="form-control">
-                                    <option value="0" style="display:none;">Selecciona tu estado</option>
-                                    <?php $qri = "SELECT estado.abrev, estado.nombre as nombrestado FROM cliente INNER JOIN estado ON cliente.idEstado = estado.idEstado WHERE cliente.tipoCliente = 'IGUALA' GROUP BY estado.nombre ORDER BY estado.nombre ASC";
-                                          $res = mysqli_query($con, $qri);
-                                          while($row = $res->fetch_object()) {?>
-                                    <option value="<?php echo ($row->abrev); ?>"> <?php echo ($row->nombrestado); ?> </option>
-                                    <?php } ?>
-                                </select>
-                              </div>
-                              <div class="col-sm-1">
-                                <button class="btn btn-info"><i class="metismenu-icon pe-7s-search"></i></button>
-                              </div>
+                            <!-- <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content bg-premium-dark">
+                                    <div class="widget-content-wrapper text-white">
+                                        <div class="widget-content-left">
+                                            <div class="widget-heading">Products Sold</div>
+                                            <div class="widget-subheading">Revenue streams</div>
+                                        </div>
+                                        <div class="widget-content-right">
+                                            <div class="widget-numbers text-warning"><span>$14M</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-6">
+                                <div class="main-card mb-3 card">
+                                    <div class="card-body"><h5 class="card-title">Información ENERGAS</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                                    </div>
+                                </div>
                             </div>
-                          </form>
+                            <div class="col-lg-6">
+                                <div class="mb-3 card text-white card-body bg-danger">
+                                    <h5 class="text-white card-title">Notificación</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="row"> </div>
                         <div class="row"> </div>
                         <div class="row"> </div>
-                        <div class="row"> </div>
+                        <div class="row">
+                            <!-- <div class="col-md-6 col-lg-3">
+                                <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
+                                    <div class="widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left pr-2 fsize-1">
+                                                    <div class="widget-numbers mt-0 fsize-3 text-danger">71%</div>
+                                                </div>
+                                                <div class="widget-content-right w-100">
+                                                    <div class="progress-bar-xs progress">
+                                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left fsize-1">
+                                                <div class="text-muted opacity-6">Income Target</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-md-6 col-lg-3">
+                                <div class="card-shadow-success mb-3 widget-chart widget-chart2 text-left card">
+                                    <div class="widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left pr-2 fsize-1">
+                                                    <div class="widget-numbers mt-0 fsize-3 text-success">54%</div>
+                                                </div>
+                                                <div class="widget-content-right w-100">
+                                                    <div class="progress-bar-xs progress">
+                                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style="width: 54%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left fsize-1">
+                                                <div class="text-muted opacity-6">Expenses Target</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-md-6 col-lg-3">
+                                <div class="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card">
+                                    <div class="widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left pr-2 fsize-1">
+                                                    <div class="widget-numbers mt-0 fsize-3 text-warning">32%</div>
+                                                </div>
+                                                <div class="widget-content-right w-100">
+                                                    <div class="progress-bar-xs progress">
+                                                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left fsize-1">
+                                                <div class="text-muted opacity-6">Spendings Target</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- <div class="col-md-6 col-lg-3">
+                                <div class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
+                                    <div class="widget-content">
+                                        <div class="widget-content-outer">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left pr-2 fsize-1">
+                                                    <div class="widget-numbers mt-0 fsize-3 text-info">89%</div>
+                                                </div>
+                                                <div class="widget-content-right w-100">
+                                                    <div class="progress-bar-xs progress">
+                                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left fsize-1">
+                                                <div class="text-muted opacity-6">Totals Target</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
                     </div>

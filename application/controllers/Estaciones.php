@@ -3,21 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Estaciones extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('estacionescl_model');
+		//$this->load->helper();
+	}
+
 	public function index(){
 		$nameU = $this->session->userdata('nombreU');
 
@@ -31,6 +22,17 @@ class Estaciones extends CI_Controller {
 		//echo $stateS;
 		$this->load->view('estacion/header');
 		$this->load->view('estacion/estadosr', compact('stateS','nameU'));
+		$this->load->view('estacion/footer');
+	}
+	public function load(){
+		$data['nameU'] = $this->session->userdata('nombreU');
+		$numU = $this->session->userdata('idU');
+
+		$data['plUser'] = $this->estacionescl_model->busqpluser($numU);
+		//echo $data['plUser'][0]['numeroEst']; //YA DA LOS TRES DATOS
+
+		$this->load->view('estacion/header');
+		$this->load->view('estacion/stationclient', $data);
 		$this->load->view('estacion/footer');
 	}
 
