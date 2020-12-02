@@ -45,6 +45,7 @@ class Proyectos extends CI_Controller {
 		//echo $data['igualasta'][0]['fechaInicio']; //YA DA LOS TRES DATOS
 		$data['factcarga'] = $this->subirfactura_model->busfactura($id);
 		//echo $data['factcarga']; //=>no existen resultados
+		//echo $data['factcarga'][0]['estatus'];
 
 		$this->load->view('menu/header');
 		$this->load->view('proyectos/iguala', $data);

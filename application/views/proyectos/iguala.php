@@ -89,9 +89,7 @@
                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
                                               <?php }if($nameU == "otro"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
-                                              <?php }else{ ?>
-                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
-                                              <?php } ?>
+                                              <?php }?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
@@ -639,17 +637,28 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Mes</th>
+                                                <th>Fecha</th>
                                                 <th>Estatus</th>
                                                 <th>Archivo</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php if($factcarga == "No existen resultados"){?>
+                                            <?php $i = 0; 
+                                                  if($factcarga == "No existen resultados"){?>
                                                       <tr>
                                                         <th style="text-align: center;" colspan="4"> No existen resultados </th>
                                                       </tr>
-                                            <?php } ?>
+                                            <?php } else{
+                                                    foreach ($factcarga as $factcarga) {?>
+                                                        <tr>
+                                                            <th scope="row"><?php echo $i;?></th>
+                                                            <td><?php echo $factcarga['fechaCarga'];?></td>
+                                                            <td><?php echo $factcarga['estatus'];?></td>
+                                                            <td> <button type="" onclick="location.href='<?php echo "../../".$factcarga['rutaArchivo'];?>'" class="mb-2 mr-2 btn btn-primary"> Descargar </button>   </td>
+                                                            <!-- <td> <a href="<?php echo "../../".$factcarga['rutaArchivo'];?>" class="nav-link"><i class="nav-link-icon pe-7s-download"></i> <span>Descargar</span> </a> </td> -->
+                                                        </tr>
+                                            <?php   }
+                                                  } ?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -68,7 +68,7 @@
                                 <div class="main-card mb-3 card">
                                     <div class="card-body">
                                         <h5 class="card-title">Bienvenido a nuestro portal</h5>
-                                        <form action="" method="POST" class="">
+                                        <form action="<?php echo base_url()?>login" method="POST" class="">
                                             <div class="position-relative form-group">
                                                 <label for="exampleEmail" class="">Usurio</label>
                                                 <input name="username" id="username" placeholder="Nombre de usuario" type="text" class="form-control">

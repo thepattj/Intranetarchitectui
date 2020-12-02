@@ -30,12 +30,10 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                          <?php if($nameU == "Antonio Rivera"){ ?>
+                                          <?php if($nombreU == "Antonio Rivera"){ ?>
                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarantonio.png" alt="">
-                                              <?php }if($nameU == "Adrian Meza"){ ?>
+                                              <?php }if($nombreU == "Adrian Meza"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
-                                              <?php }else{ ?>
-                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                               <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -50,12 +48,12 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $nameU; ?>
+                                        <?php echo $nombreU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
+                                        <?php if($nombreU == "Antonio Rivera"){?>
                                                   Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
+                                        <?php }if($nombreU == "Adrian Meza"){?>
                                                   Contador
                                         <?php } ?>
                                     </div>

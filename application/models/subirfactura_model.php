@@ -51,15 +51,13 @@ class subirFactura_model extends CI_Model{
 		$this->db->query($sql);
 		return TRUE;
 	}
-
 	public function busfactura($idCESH){
 		$this->db->select('estatus, rutaArchivo, fechaCarga');
 		$this->db->from('factura');
-		//$this->db->like('idCESH', );
-		$this->db->where('idCESH', $idCESH);
+		$this->db->like('idCESH', $idCESH);
 		$query = $this->db->get();
 
-		if($query->num_rows()>0){
+		if($query->num_rows()>=0){
 			return $query->result_array();
 		}else{
 			$result = "No existen resultados";
