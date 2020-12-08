@@ -52,7 +52,7 @@ class subirFactura_model extends CI_Model{
 		return TRUE;
 	}
 	public function busfactura($idCESH){
-		$this->db->select('estatus, rutaArchivo, fechaCarga');
+		$this->db->select('estatus, idFactura, fechaCarga');
 		$this->db->from('factura');
 		$this->db->like('idCESH', $idCESH);
 		$query = $this->db->get();
@@ -63,6 +63,20 @@ class subirFactura_model extends CI_Model{
 			$result = "No existen resultados";
 			return $result;
 		}
+	}
+	public function busdireccion($id){
+	    $this->db->select('rutaArchivo');
+		$this->db->from('factura');
+		$this->db->like('idFactura', $id);
+		//$query = $this->db->get();
+		return $this->db->get();
+
+		/*if($query->num_rows()>=0){
+			return $query->result_array();
+		}else{
+			$result = "No existen resultados";
+			return $result;
+		}*/
 	}
 }
 

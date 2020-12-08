@@ -1,4 +1,3 @@
-
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
@@ -30,10 +29,14 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                          <?php if($nameU == "Antonio Rivera"){ ?>
-                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarantonio.png" alt="">
-                                              <?php }if($nameU == "Adrian Meza"){ ?>
-                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
+                                          <?php if($nombreU == "Abraham Caballero"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarabraham.png" alt="">
+                                              <?php }if($nombreU == "Juan Legaspi"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarlegaspi.png" alt="">
+                                              <?php }if($nombreU == "Juan Oliver"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataroliver.png" alt="">
+                                              <?php }if($nombreU == "Ivan Montiel"){ ?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarivan.png" alt="">
                                               <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -48,13 +51,13 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $nameU; ?>
+                                        <?php echo $nombreU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Antonio Rivera"){?>
-                                                  Contador
-                                        <?php }if($nameU == "Adrian Meza"){?>
-                                                  Contador
+                                        <?php if($nombreU == "Abraham Caballero"){?>
+                                                  Jefe Ventas
+                                        <?php }if(($nombreU == "Juan Legaspi")||($nombreU == "Juan Oliver")||($nombreU == "Ivan Montiel")){?>
+                                                  Ventas
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -385,23 +388,30 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <a href="#" class="mm-active">
+                                    <a href="<?php echo base_url();?>inicio/ventas" class="mm-active">
                                         <i class="metismenu-icon pe-7s-home"></i>
                                         Inicio
                                     </a>
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="<?php echo base_url();?>Estaciones">
+                                    <a href="<?php echo base_url();?>Prospecto">
                                         <i class="metismenu-icon pe-7s-car"></i>
-                                        Estaciones
+                                        Prospectos
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="./Facturas">
+                                    <a href="<?php echo base_url();?>Cotizacio">
+                                        <i class="metismenu-icon pe-7s-car"></i>
+                                        Cotizaciones
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
                                         <i class="metismenu-icon pe-7s-portfolio"></i>
-                                        Facturas
+                                        Productos
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
                                     </a>
                                     <!-- <ul>
@@ -482,8 +492,8 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
 
-                                    <div>Información para el regulado
-                                        <div class="page-title-subheading">Aqui encontraras información para tu estación de servicio de parte de ENERGAS </div>
+                                    <div>Información para ti
+                                        <div class="page-title-subheading">Aqui encontraras información de las actividades que han tenido respuesta </div>
                                     </div>
                                 </div>
                                 <div class="page-title-actions">

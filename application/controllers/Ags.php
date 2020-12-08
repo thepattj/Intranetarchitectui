@@ -32,7 +32,7 @@ class Ags extends CI_Controller {
 
 
 	/* FUNCIONES DE PERMISOS DE CRE */
-	public function PL0000(){
+	public function PL0010(){
 		$pl = "PL/0010";
 		$this->session->set_userdata('idPL', $pl);
 		$nameU = $this->session->userdata('nombreU');

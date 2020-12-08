@@ -22,7 +22,7 @@ class Login extends CI_Controller {
 		$this->session->set_userdata('numeroU', $numdpto);
 		$this->session->set_userdata('nombreU', $nameuser);
 		$this->session->set_userdata('idU', $numuser);
-		$data['nombreU'] = $nameuser;
+		$data['nameU'] = $nameuser;
 
 		if($numdpto == '1'){ //ANALISIS DE RIESGO
 			//echo $numuser;

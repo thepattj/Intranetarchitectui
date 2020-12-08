@@ -1,21 +1,4 @@
-|<?php
-    function Conectarse() {
-        $host="localhost";
-        $user="root";
-        $pass="";
-        $database="intranet";
 
-        $link = new mysqli($host, $user, $pass, $database);
-        $acentos= $link->query("SET NAMES 'utf8'");
-
-        if($link->connect_errno > 0){
-            echo "ERROR AL CONECTARSE A LA BASE DE DATOS";
-        }else{
-            return $link;
-        }
-    }
-    $con = Conectarse();
-?>
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
@@ -87,8 +70,10 @@
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                               <?php if($nameU == "Estación Energas"){ ?>
                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
-                                              <?php }if($nameU == "otro"){ ?>
+                                              <?php }if($nameU == "Adrian Meza"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
+                                              <?php }if($nameU == "Antonio Rivera"){?>
+                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarantonio.png" alt="">
                                               <?php }?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -106,7 +91,11 @@
                                         <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nameU == "Estación Energas"){?> Administrador <?php }?>
+                                        <?php if($nameU == "Estación Energas"){?>
+                                            Administrador
+                                        <?php }if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
+                                            Contador
+                                        <?php }?>
                                     </div>
                                 </div>
                                 <!-- <div class="widget-content-right header-user-info ml-3">
@@ -435,10 +424,18 @@
                             <ul class="vertical-nav-menu">
                                 <li class="app-sidebar__heading">Panel Inicial</li>
                                 <li>
-                                    <a href="../inicio/cliente">
-                                      <i class="metismenu-icon pe-7s-home"></i>
-                                      Inicio
-                                    </a>
+                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
+                                        <a href="<?php echo base_url();?>/inicio/contraloria">
+                                            <i class="metismenu-icon pe-7s-home"></i>
+                                            Inicio
+                                        </a>
+                                    <?php }if(($nameU == "Estación Energas")){?>
+                                        <a href="<?php echo base_url();?>/inicio/cliente">
+                                          <i class="metismenu-icon pe-7s-home"></i>
+                                          Inicio
+                                        </a>
+                                    <?php }?>
+                                    
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
@@ -449,10 +446,18 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                      <i class="metismenu-icon pe-7s-portfolio"></i>
-                                      Proyectos
-                                    </a>
+                                    <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
+                                        <a href="<?php echo base_url();?>/facturas">
+                                            <i class="metismenu-icon pe-7s-portfolio"></i>
+                                            Facturas
+                                        </a>
+                                    <?php }if(($nameU == "Estación Energas")||($nameU == "otro")){?>
+                                        <a href="#">
+                                          <i class="metismenu-icon pe-7s-portfolio"></i>
+                                          Proyectos
+                                        </a>
+                                    <?php }?>
+                                    
                                     <!-- <ul>
                                         <li>
                                             <a href="components-tabs.html">
@@ -643,7 +648,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php $i = 0; 
+                                            <?php $i = 1; 
                                                   if($factcarga == "No existen resultados"){?>
                                                       <tr>
                                                         <th style="text-align: center;" colspan="4"> No existen resultados </th>
@@ -654,10 +659,12 @@
                                                             <th scope="row"><?php echo $i;?></th>
                                                             <td><?php echo $factcarga['fechaCarga'];?></td>
                                                             <td><?php echo $factcarga['estatus'];?></td>
-                                                            <td> <button type="" onclick="location.href='<?php echo "../../".$factcarga['rutaArchivo'];?>'" class="mb-2 mr-2 btn btn-primary"> Descargar </button>   </td>
-                                                            <!-- <td> <a href="<?php echo "../../".$factcarga['rutaArchivo'];?>" class="nav-link"><i class="nav-link-icon pe-7s-download"></i> <span>Descargar</span> </a> </td> -->
+                                                            <!--<td> <button type="" onclick="location.href='<?php echo base_url(); ?>Facturas/descargar'" class="mb-2 mr-2 btn btn-primary"> Descargar </button>   </td>-->
+                                                            <!-- <td> <button type="" onclick="location.href='<?php echo "../../".$factcarga['rutaArchivo'];?>'" class="mb-2 mr-2 btn btn-primary"> Descargar </button>   </td> -->
+                                                            <td> <a href="<?php echo base_url();?>Facturas/descargar/<?php echo $factcarga['idFactura']?>" class="nav-link"><i class="nav-link-icon pe-7s-download"></i> <span>Descargar</span> </a> </td>
                                                         </tr>
-                                            <?php   }
+                                            <?php   $i++;
+                                                    }
                                                   } ?>
                                             </tbody>
                                         </table>
