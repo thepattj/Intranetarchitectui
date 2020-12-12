@@ -29,13 +29,13 @@
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                          <?php if($nombreU == "Abraham Caballero"){ ?>
+                                          <?php if($nameU == "Abraham Caballero"){ ?>
                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarabraham.png" alt="">
-                                              <?php }if($nombreU == "Juan Legaspi"){ ?>
+                                              <?php }if($nameU == "Juan Antonio Legaspi"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarlegaspi.png" alt="">
-                                              <?php }if($nombreU == "Juan Oliver"){ ?>
+                                              <?php }if($nameU == "Juan Oliver"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataroliver.png" alt="">
-                                              <?php }if($nombreU == "Ivan Montiel"){ ?>
+                                              <?php }if($nameU == "Ivan Montiel"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarivan.png" alt="">
                                               <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
@@ -51,12 +51,12 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $nombreU; ?>
+                                        <?php echo $nameU; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        <?php if($nombreU == "Abraham Caballero"){?>
+                                        <?php if($nameU == "Abraham Caballero"){?>
                                                   Jefe Ventas
-                                        <?php }if(($nombreU == "Juan Legaspi")||($nombreU == "Juan Oliver")||($nombreU == "Ivan Montiel")){?>
+                                        <?php }if(($nameU == "Juan Antonio Legaspi")||($nameU == "Juan Oliver")||($nameU == "Ivan Montiel")){?>
                                                   Ventas
                                         <?php } ?>
                                     </div>

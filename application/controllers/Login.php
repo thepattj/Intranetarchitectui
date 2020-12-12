@@ -29,13 +29,19 @@ class Login extends CI_Controller {
 			redirect('inicio/analisis');
 		}if($numdpto == '2'){ //CLIENTES!
 			//echo $numuser." - NOMBRE USUARIO".$nameuser;
-			redirect('../inicio/cliente');
+			$this->load->view('menu/header');
+		    $this->load->view('menu/clientes',$data);
+		    $this->load->view('menu/footer');
 		}if($numdpto == '3'){ //CONTRALORIA
 			//print_r($numuser." - NOMBRE USUARIO".$nameuser);
 			//header("localtion".base_url()."Inicio/contraloria");
 			//redirect('../inicio/contraloria');
 			$this->load->view('menu/header');
 		    $this->load->view('menu/contador',$data);
+		    $this->load->view('menu/footer');
+		}if($numdpto == '16'){ //VENTAS
+			$this->load->view('menu/header');
+		    $this->load->view('menu/ventas',$data);
 		    $this->load->view('menu/footer');
 		}
 	}

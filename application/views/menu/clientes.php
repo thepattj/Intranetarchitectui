@@ -34,8 +34,6 @@
                                                    <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarEEnergas.png" alt="">
                                               <?php }if($nameU == "otro"){ ?>
                                                     <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avataradrian.png" alt="">
-                                              <?php }else{ ?>
-                                                  <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
                                               <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
