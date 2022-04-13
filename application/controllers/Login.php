@@ -39,6 +39,14 @@ class Login extends CI_Controller {
 			$this->load->view('menu/header');
 		    $this->load->view('menu/contador',$data);
 		    $this->load->view('menu/footer');
+		}if($numdpto == '10'){ //SASISOPA
+			//print_r($numuser." - NOMBRE USUARIO".$nameuser);
+			//header("localtion".base_url()."Inicio/contraloria");
+			//redirect('../inicio/contraloria');
+			//echo "sasisopa es el dpto";			
+			$this->load->view('menu/header');
+		    $this->load->view('menu/SASISOPA',$data);
+		    $this->load->view('menu/footer');
 		}if($numdpto == '16'){ //VENTAS
 			$this->load->view('menu/header');
 		    $this->load->view('menu/ventas',$data);

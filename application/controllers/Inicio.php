@@ -52,4 +52,11 @@ class Inicio extends CI_Controller {
 		$this->load->view('menu/ventas', compact("nameU"));
 		$this->load->view('menu/footer');
 	}
+
+	public function sasisopa(){
+		$nameU = $this->session->userdata('nombreU');
+		$this->load->view('menu/header');
+		$this->load->view('menu/SASISOPA',$data);
+		$this->load->view('menu/footer');
+	}
 }

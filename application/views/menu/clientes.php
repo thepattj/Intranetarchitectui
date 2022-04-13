@@ -388,7 +388,7 @@
                                 </li>
                                 <li class="app-sidebar__heading">Actividades</li>
                                 <li>
-                                    <a href="../estaciones/load">
+                                    <a href="<?php echo base_url();?>estaciones/load">
                                         <i class="metismenu-icon pe-7s-car"></i>
                                         Estaciones
                                         <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->

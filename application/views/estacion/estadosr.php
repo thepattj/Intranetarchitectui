@@ -89,8 +89,10 @@
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avatarantonio.png" alt="">
                                             <?php }if($nameU == "Adrian Meza"){ ?>
                                                 <img width="42" class="rounded-circle" src="<?php echo base_url();?>assets/images/avatars/avataradrian.png" alt="">
-                                            <?php }else{ ?>
-                                                <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                            <?php }if($nameU == "Josue Olvera"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarjosue.png" alt="">
+                                            <?php }if($nameU == "Carla Zarate"){ ?>
+                                                   <img width="42" class="rounded-circle" src="<?php echo base_url(); ?>assets/images/avatars/avatarcarla.png" alt="">
                                             <?php } ?>
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -110,6 +112,9 @@
                                   <div class="widget-subheading">
                                       <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){?>
                                                 Contador
+                                      <?php }?>
+                                      <?php if(($nameU == "Josue Olvera")||($nameU == "Carla Zarate")){?>
+                                                SASISOPA
                                       <?php }?>
                                   </div>
                                 </div>
@@ -444,6 +449,11 @@
                                               <i class="metismenu-icon pe-7s-home"></i>
                                               Inicio
                                             </a>
+                                    <?php }if(($nameU == "Josue Olvera")||($nameU == "Carla Zarate")){ ?>
+                                            <a href="../inicio/sasisopa">
+                                              <i class="metismenu-icon pe-7s-home"></i>
+                                              Inicio
+                                            </a>
                                     <?php }else{ ?>
                                             <a href="inicio">
                                               <i class="metismenu-icon pe-7s-home"></i>
@@ -461,6 +471,12 @@
                                 </li>
                                 <li>
                                     <?php if(($nameU == "Antonio Rivera")||($nameU == "Adrian Meza")){ ?>
+                                        <a href="../facturas">
+                                            <i class="metismenu-icon pe-7s-portfolio"></i>
+                                                Facturas
+                                        <!-- <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i> -->
+                                        </a>
+                                    <?php }if(($nameU == "Josue Olvera")||($nameU == "Carla Zarate")){ ?>
                                         <a href="../facturas">
                                             <i class="metismenu-icon pe-7s-portfolio"></i>
                                                 Facturas
